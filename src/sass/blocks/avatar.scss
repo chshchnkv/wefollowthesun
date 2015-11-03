@@ -1,0 +1,14 @@
+.avatar {
+  display: block;
+  overflow: hidden;
+  
+  width: 70px;
+  height: 70px;
+  
+  border-radius: 50%;
+  
+  @media (min-width: $size-tablet) {
+    width: 35px;
+    height: 35px;
+  }
+}

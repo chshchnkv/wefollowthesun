@@ -1,0 +1,119 @@
+@mixin make-width($fullsize, $paddingsize, $fixed: false) {
+  $w: ($fullsize - ($paddingsize * 2));
+  @if ($fixed) {
+    width: $w;
+  } @else {
+    width: percentage($w / $fullsize);
+  }
+}
+
+/// Генерация контейнера страницы с учетом точек останова и заданных для них отступов
+@mixin make-wrapper($all-sizes) {
+  margin: 0 auto;
+  
+  $values: map-values($all-sizes);
+  
+  @for $i from 1 through length($values) {
+    
+    $size-values: nth($values, $i);
+    
+    @if ($i==1) {
+      @include make-width(nth($size-values, 1), nth($size-values, 2));
+    } 
+
+    @else {
+      @media (min-width: nth($size-values, 1)) {
+        @include make-width(nth($size-values, 1), nth($size-values, 2));
+      }
+    }
+  }
+}
+
+/// Генерация контейнера сетки
+@mixin generate-container() {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+    
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+
+/// Генерация ряда сетки
+@mixin generate-row($all-sizes) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  
+  $values: map-values($all-sizes);
+  
+  @for $i from 1 through length($values) {
+    
+    $size-values: nth($values, $i);
+    $size: nth($size-values, 1);
+    $gap: nth($size-values, 3);
+    
+    @if ($i==1) {
+      margin-left: -$gap;
+    } 
+
+    @else {
+      @media (min-width: $size) {
+        margin-left: -$gap;
+      }
+    }
+  }
+
+}
+
+/// Генерация колонки по номеру, общему числу колонок
+@mixin generate-col($all-sizes, $columns, $col_num) {
+
+  flex-shrink: 0;
+  flex-grow: 0;
+  
+  $values: map-values($all-sizes);
+
+  @for $i from 1 through length($values) {
+
+    $size-values: nth($values, $i);
+    $size: nth($size-values, 1);
+    $gap: nth($size-values, 3);
+      
+    @if ($i==1) {
+      padding-left: $gap;
+    }
+    @else {
+      @media (min-width: $size) {
+        padding-left: $gap;
+      }
+    }
+  }
+  
+  @if ($col_num == $columns) {
+    flex-basis: 100%;
+    margin: 0;
+  } 
+  @else {  
+    flex-basis: 100%/$columns * $col_num;
+  }
+}
+
+/// Генерация классов сетки по числу колонок: .grid12, .grid12__row, .grid12__span1 ...
+@mixin generate-grid($columns, $all-sizes) {
+  
+  .grid#{$columns} {
+    @include generate-container();
+
+    &__row {
+      @include generate-row($all-sizes);
+    }
+
+    @for $i from 1 through $columns {
+      &__span#{$i} {
+        @include generate-col($all-sizes, $columns, $i);
+      }
+    }    
+  }
+}

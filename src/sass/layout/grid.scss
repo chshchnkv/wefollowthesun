@@ -1,0 +1,9 @@
+@include generate-grid(12, $sizes);
+
+.bordered {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: $h5;
+  border: 1px solid $color-bg-darker;
+  word-wrap: break-word;
+}

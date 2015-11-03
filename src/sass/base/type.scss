@@ -1,0 +1,44 @@
+$font-family: "PT Sans Narrow", sanf-serif !global;
+$font-base: 10px!global;
+$h1: 4 * $font-base!global;
+$h2: 3.2 * $font-base!global;
+$h3: 2.4 * $font-base!global;
+$h4: 2 * $font-base!global;
+$h5: 2 * $font-base!global;
+$h6: 1.8 * $font-base!global;
+$font-normal: 1.4 * $font-base!global;
+
+html {
+  font-family: $font-family;
+  font-size: $font-base;
+}
+
+h1 {
+  font-size: $h1;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: $h2;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: $h3;
+}
+
+h4, h5 {
+  font-size: $h4;
+}
+
+h6 {
+  font-size: $h6;
+}
+
+p {
+  font-size: $font-normal; 
+}
+
+.centered-text {
+  text-align: center;
+}

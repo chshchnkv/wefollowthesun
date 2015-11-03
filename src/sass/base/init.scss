@@ -1,0 +1,16 @@
+$outline-debug: "false";
+
+html {
+  box-sizing: border-box;
+
+  color: $color-text-dark;
+  background-color: $color-bg-light;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  
+  @if ($outline-debug == "true") {
+    outline: 1px solid rgba(255, 0, 0, 0.2);
+  }
+}

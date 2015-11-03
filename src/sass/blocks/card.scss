@@ -1,0 +1,12 @@
+%card {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card {
+  @extend %card;
+  
+  &__avatar {
+    
+  }
+}

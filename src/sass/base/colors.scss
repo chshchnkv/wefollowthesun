@@ -1,0 +1,15 @@
+$color-text-dark: #332532;
+$color-text-light: #fff;
+
+$color-bg-light: #e6e2da;
+$color-bg-dark: #644d52;
+$color-bg-darker: #402319;
+
+$color-grey: #555;
+
+$color-accent-orange: #f77a52;
+$color-accent-yellow: #ecdb60;
+
+@mixin hover($property, $color) {
+  #{$property}: darken($color, 20%);
+}
