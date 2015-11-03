@@ -64,39 +64,35 @@
       }
     }
   }
-
 }
 
-/// Генерация колонки по номеру, общему числу колонок
-@mixin generate-col($all-sizes, $columns, $col_num) {
-
-  flex-shrink: 0;
-  flex-grow: 0;
-  
-  $values: map-values($all-sizes);
-
-  @for $i from 1 through length($values) {
-
-    $size-values: nth($values, $i);
-    $size: nth($size-values, 1);
-    $gap: nth($size-values, 3);
-      
-    @if ($i==1) {
-      padding-left: $gap;
-    }
-    @else {
-      @media (min-width: $size) {
-        padding-left: $gap;
-      }
-    }
-  }
-  
+@mixin col($gap, $columns, $col_num) {
+  padding-left: $gap;
   @if ($col_num == $columns) {
     flex-basis: 100%;
     margin: 0;
   } 
   @else {  
     flex-basis: 100%/$columns * $col_num;
+  }  
+}
+
+/// Генерация колонки по номеру, общему числу колонок
+@mixin generate-col($size-values, $columns, $col_num, $media: true) {
+
+  flex-shrink: 0;
+  flex-grow: 0;
+  
+  $size: nth($size-values, 1);
+  $gap: nth($size-values, 3);
+  
+  @if ($media==true) {
+    @media (min-width: $size) {
+      @include col($gap, $columns, $col_num);
+    }
+  }
+  @else {
+    @include col($gap, $columns, $col_num);
   }
 }
 
@@ -109,11 +105,23 @@
     &__row {
       @include generate-row($all-sizes);
     }
-
-    @for $i from 1 through $columns {
-      &__span#{$i} {
-        @include generate-col($all-sizes, $columns, $i);
-      }
-    }    
+    
+    @each $size, $size-values in $all-sizes {
+      
+      @for $i from 1 through $columns {
+        
+        @if ($size=="mobile") {
+          &__span#{$i} {
+            @include generate-col($size-values, $columns, $i, false);
+          }
+        }
+        @else {
+          &__span#{$i}-#{$size} {
+            @include generate-col($size-values, $columns, $i, true);
+          }          
+        }
+      }    
+      
+    }
   }
 }
