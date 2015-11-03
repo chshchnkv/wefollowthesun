@@ -41,6 +41,7 @@
 
 
 /// Генерация ряда сетки
+/// $all-szies передает карту с размерами, отступами контейнера и расстоянием между колонками
 @mixin generate-row($all-sizes) {
   display: flex;
   flex-direction: row;
@@ -64,11 +65,22 @@
       }
     }
   }
+}
 
+@mixin col($col_num, $columns) {
+  @if ($col_num == $columns) {
+    flex-basis: 100%;
+    margin: 0;
+  } 
+  @else {  
+    flex-basis: 100%/$columns * $col_num;
+  }
 }
 
 /// Генерация колонки по номеру, общему числу колонок
-@mixin generate-col($all-sizes, $columns, $col_num) {
+/// $all-sizes нужен для генерации правильных отступов при разных размерах
+/// $cur-size-values - для генерации конкретного размера
+@mixin generate-col($all-sizes, $cur-size-values, $columns, $col_num, $media: true) {
 
   flex-shrink: 0;
   flex-grow: 0;
@@ -89,14 +101,18 @@
         padding-left: $gap;
       }
     }
-  }
+
+  }  
+
+  $size: nth($cur-size-values, 1);
   
-  @if ($col_num == $columns) {
-    flex-basis: 100%;
-    margin: 0;
-  } 
-  @else {  
-    flex-basis: 100%/$columns * $col_num;
+  @if ($media == true) {
+    @media (min-width: $size) {
+      @include col($col_num, $columns);
+    }
+  }
+  @else {
+    @include col($col_num, $columns);
   }
 }
 
@@ -109,11 +125,20 @@
     &__row {
       @include generate-row($all-sizes);
     }
-
-    @for $i from 1 through $columns {
-      &__span#{$i} {
-        @include generate-col($all-sizes, $columns, $i);
-      }
-    }    
+    
+    @each $size, $size-values in $all-sizes {
+      @for $i from 1 through $columns {
+        @if ($size == "mobile") {
+          &__span#{$i} {
+            @include generate-col($all-sizes, $size-values, $columns, $i, false);
+          }    
+        }
+        @else {
+          &__span#{$i}-#{$size} {
+            @include generate-col($all-sizes, $size-values, $columns, $i, true);
+        }
+        }
+      }      
+    }
   }
 }
