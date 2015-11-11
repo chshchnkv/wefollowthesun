@@ -1,14 +1,21 @@
 .avatar {
+  position: relative;
+  
   display: block;
   overflow: hidden;
-  
-  width: 70px;
-  height: 70px;
-  
+    
   border-radius: 50%;
+
+  img {
+    @include cover;
+  }
   
-  @media (min-width: $size-tablet) {
-    width: 35px;
-    height: 35px;
+  @include transition;
+  @include transition-clipping-fix;
+  
+  &:hover {
+//    border-radius: ($border-radius/2);
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    transform: scale(1.2);
   }
 }

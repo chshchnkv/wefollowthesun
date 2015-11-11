@@ -1,5 +1,10 @@
 @import "../../../node_modules/normalize.css/normalize";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+
 @import "variables";
+@import "mixins";
+@import "functions";
+@import "animation";
 @import "colors";
 @import "fonts";
 @import "type";

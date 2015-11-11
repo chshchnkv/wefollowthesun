@@ -1,16 +1,18 @@
 $font-family: "PT Sans Narrow", sanf-serif !global;
 $font-base: 10px!global;
-$h1: 4 * $font-base!global;
-$h2: 3.2 * $font-base!global;
-$h3: 2.4 * $font-base!global;
-$h4: 2 * $font-base!global;
-$h5: 2 * $font-base!global;
-$h6: 1.8 * $font-base!global;
-$font-normal: 1.4 * $font-base!global;
+$h1: f-base(4)!global;
+$h2: f-base(3.2)!global;
+$h3: f-base(2.4)!global;
+$h4: f-base(2)!global;
+$h5: f-base(2)!global;
+$h6: f-base(1.8)!global;
+$font-normal: f-base(1.4)!global;
 
 html {
-  font-family: $font-family;
-  font-size: $font-base;
+  font: normal normal normal #{$font-base} $font-family; // shortening font declaration
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {

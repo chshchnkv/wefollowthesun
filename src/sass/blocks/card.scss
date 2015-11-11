@@ -1,12 +1,202 @@
-%card {
-  padding: 20px;
-  border-radius: 10px;
+@mixin generate-card($min-height: 150px, $text-color: $color-text-light, $card-border-radius: 10px, $padding: 15px) {
+  position: relative;
+  
+  z-index: 1;
+  /* 
+  z-index: 1 решает проблему со скругленными углами в момент перехода transition
+  http://stackoverflow.com/questions/20001515/chrome-bug-border-radius-not-clipping-contents-when-combined-with-css-transiti 
+  */
+  overflow: hidden;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: space-between;
+  
+  min-height: $min-height;
+  
+  padding: $padding;
+  
+  color: $text-color;
+  line-height: 1;
+
+  border-radius: $card-border-radius;
+  
+  &__header {
+    flex-grow: 1;
+    
+    a {
+      @include generate-link($color-text-light);
+    }
+
+    h2 {
+      margin: 0 5px 5px 0;
+      padding: 0;
+
+      font-size: f-base(2);
+      
+      &:hover {
+        color: shade($color-text-light, 20%);
+      }
+
+      @media (min-width: $size-tablet) {
+        font-size: f-base(1.8);
+      }
+    }
+    
+    h3 {
+      margin: 0 5px 0 0;
+      
+      font-size: f-base(1.6);
+      font-weight: normal;
+
+      @media (min-width: $size-tablet) {
+        font-size: f-base(1.2);
+      }
+    }
+  }
+  
+  
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    transition: filter 0.3s linear, transform 0.3s ease-in-out;
+    @include transition-clipping-fix;
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      @include bg-gradient;
+      transition: opacity 0.3s linear;
+      @include transition-clipping-fix;
+    }
+  }
+  
+  &:hover &__bg {
+    transform: scale(1.5);
+    filter: saturate(150%) blur(3px);
+    
+    &:after {
+      opacity: 0.5;
+    }
+  }
+  
+  
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+    margin-top: -5px;
+    margin-right: -5px;
+    margin-bottom: 15px;
+    
+    font-size: f-base(2);
+
+    &-item {
+      position: relative;
+      padding: 5px;
+      
+      @include generate-link($color-text-light);
+      
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+      
+      
+      &:before {
+        content: "";
+        vertical-align: baseline;
+        margin-right: 10px;
+        
+        @include fa-icon();
+        font-size: f-base(1.8);
+        
+        border: none;
+      }
+
+      
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        
+        display: block;
+        width: 200%;
+        height: 100%;
+        
+        top: 0;
+        left: 100px;
+        
+        
+        border-radius: ($border-radius/2);
+        background-color: transparentize($color-accent-orange, 0.1);
+        box-shadow: 0 0 10px rgba(0,0,0,.5);
+        
+        transition: transform .2s ease-out;
+        @include transition-clipping-fix;
+      }
+      
+      
+      &:hover {
+        text-shadow: 0 0 3px rgba(0,0,0,.5);
+        
+        
+        &:after {
+          transform: translateX(-105px);
+        }
+      }
+      
+      
+      &-posts:before {
+        content: $fa-var-pencil;
+      }
+
+      
+      &-photos:before {
+        content: $fa-var-camera;
+        font-size: f-base(1.6);
+      }
+      
+      
+      &-comments:before {
+        content: $fa-var-comments;
+      }
+    }
+  }
+  
+  
+  &__authors {
+    flex-basis: 100%;
+    flex-grow: 1;
+    margin-left: -$author-item-margin;
+    margin-bottom: -$author-item-margin;
+  }
+
+
+  @media (min-width: $size-tablet) {    
+    border-radius: ($border-radius/2);
+  }
 }
 
 .card {
-  @extend %card;
-  
-  &__avatar {
-    
-  }
+  @include generate-card;
 }

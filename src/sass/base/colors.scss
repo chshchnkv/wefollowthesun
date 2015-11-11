@@ -10,6 +10,28 @@ $color-grey: #555;
 $color-accent-orange: #f77a52;
 $color-accent-yellow: #ecdb60;
 
-@mixin hover($property, $color) {
-  #{$property}: darken($color, 20%);
+@mixin bg-gradient {
+  background: linear-gradient(to bottom, fade-out($color-bg-darker, .55) 0%, fade-out($color-bg-darker, .65) 100%);
+}
+
+/// Немного осветлить цвет
+/// @access public
+/// @param {Color} $color - цвет для осветления
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Немного затемнить цвет
+/// @access public
+/// @param {Color} $color - цвет для затемнения
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function hover ($color, $shade-value: 20%) {
+  @return shade($color, $shade-value);
 }

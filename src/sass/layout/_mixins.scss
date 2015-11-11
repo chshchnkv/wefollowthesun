@@ -45,7 +45,7 @@
 @mixin generate-row($all-sizes) {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   
   $values: map-values($all-sizes);
   

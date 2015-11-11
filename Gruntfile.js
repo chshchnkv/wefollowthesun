@@ -58,7 +58,7 @@ module.exports = function(grunt) {
       },
       
       html: {
-        files: ["src/*.html"],
+        files: ["src/*.html", "src/*.php"],
         tasks: ["clean:html", "copy:html"],
         options: {
           spawn: false,
@@ -76,8 +76,17 @@ module.exports = function(grunt) {
       },
 
       style: {
-        files: ["src/sass/**/*.scss", "src/sass/*.scss"],
+        files: ["src/sass/**/*.scss", "src/sass/*.scss", "node_modules/font-awesome/scss/**/*.scss"],
         tasks: ["sass", "cmq", "postcss", "cssmin"],
+        options: {
+          spawn: false,
+          livereload: true
+        }
+      },
+      
+      img: {
+        files: ["src/img/**/*.jpg", "src/img/**/*.png", "src/img/*.jpg", "src/img/*.png"],
+        tasks: ["copy:img"],
         options: {
           spawn: false,
           livereload: true
@@ -96,7 +105,7 @@ module.exports = function(grunt) {
     
     clean: {
       build: ["build"],
-      html: ["build/*.html"]
+      html: ["build/*.html", "build/*.php"]
     },
     
     copy: {
@@ -107,7 +116,8 @@ module.exports = function(grunt) {
           src: [
             "fonts/**",
             "img/**",
-            "*.html"
+            "*.html",
+            "*.php"
           ],
           dest: "build"
         }]
@@ -117,7 +127,16 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: "src",
-          src: ["*.html"],
+          src: ["*.html", "*.php"],
+          dest: "build"
+        }]
+      },
+
+      img: {
+        files: [{
+          expand: true,
+          cwd: "src",
+          src: ["img/**"],
           dest: "build"
         }]
       },
@@ -128,7 +147,14 @@ module.exports = function(grunt) {
           cwd: "src/fonts",
           src: "*.*",
           dest: "build/fonts"
-        }]
+        }, 
+        {
+          expand: true, 
+          cwd: "node_modules/font-awesome/fonts",
+          src: "*.*",
+          dest: "build/fonts"
+        }
+        ]
       }
     },
     

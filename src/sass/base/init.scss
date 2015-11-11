@@ -1,4 +1,4 @@
-$outline-debug: "false";
+//$outline-debug: true;
 
 html {
   box-sizing: border-box;
@@ -10,7 +10,12 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
   
-  @if ($outline-debug == "true") {
-    outline: 1px solid rgba(255, 0, 0, 0.2);
+  @if (variable-exists(outline-debug)) {
+    outline: 1px dotted rgba(255, 0, 0, 0.8);
   }
+}
+
+
+a {
+  @include generate-link($color-text-dark);
 }
