@@ -10,6 +10,7 @@
   }
 }
 
+
 @mixin list-init {
   margin: 0;
   padding: 0;
@@ -25,42 +26,51 @@
   }
 }
 
+
 @mixin size($width: 0, $height: 0) {
   width: $width;
   height: $height;
 }
 
+
 @mixin transition ($what: all, $duration: .3s, $timing: ease-out) {
   transition: $what $duration $timing;
 }
+
 
 @mixin translateXY ($x, $y) {
   transform: translate($x,$y);
 }
 
+
 @mixin translateX ($x) {
   transform: translateX($x);
 }
 
+
 @mixin translateY ($y) {
   transform: translateY($y);
 }
+
 
 @mixin centerV {
   top: 50%;
   @include translateY(-50%);
 }
 
+
 @mixin centerH {
   left: 50%;
   @include translateX(-50%);
 }
+
 
 @mixin centerHV {
   top: 50%;
   left: 50%;
   @include translateXY(-50%, -50%);
 }
+
 
 @mixin clearfix {
   &:after {
@@ -70,6 +80,7 @@
   }
 }
 
+
 @mixin generate_icon($parent, $element, $props, $size){
   @each $object in $props {
     .#{$parent}--#{$object} .#{$element}:before {
@@ -78,10 +89,6 @@
   }
 }
 
-@mixin colors($bg: #fff, $text: $text-color) {
-  color: $text;
-  background-color: $bg;
-}
 
 @mixin numbered-text {
   &:before, &:after {

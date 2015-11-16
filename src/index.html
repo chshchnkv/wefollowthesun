@@ -14,45 +14,189 @@
     <h4>Heading 4</h4>
     <h5>Heading 5</h5>
     <h6>Heading 6</h6>
+    
+    <div class="cards">
+     
+      <article class="card  cards__item">
 
-    <article class="card">
+        <a class="card__header" href="#">
+          <h2>Юго-Восточная Азия</h2>
+          <h3>20&nbsp;декабря&nbsp;2014 &mdash; 11&nbsp;января&nbsp;2015</h3>
+        </a>
 
-      <a class="card__bg" style="background-image: url(../img/2014-11-01.jpg)" href="#"></a>
+        <div class="card__meta">
+          <a class="card__meta-item  card__meta-item-posts" href="#">10</a>
+          <a class="card__meta-item  card__meta-item-photos" href="#">62</a>
+          <a class="card__meta-item  card__meta-item-comments" href="#">11</a>
+        </div>
 
-      <a class="card__header" href="#">
-        <h2>Баку</h2>
-        <h3>1&nbsp;&mdash;4&nbsp;ноября&nbsp;2014</h3>
-      </a>
+        <div class="card__authors">
+          <a class="card__author  avatar" href="#">
+            <img src="img/628656815.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/3245064379.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/1649510405.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/2950783290.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/3203750414.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/4227828891.jpg" alt="" width="300" height="300">
+          </a>
+        </div>
+
+        <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
+
+      </article>
+      
         
-      <div class="card__meta">
-        <a class="card__meta-item  card__meta-item-posts" href="#" title="Записи">3</a>
-        <a class="card__meta-item  card__meta-item-photos" href="#" title="Фотографии">24</a>
-        <a class="card__meta-item  card__meta-item-comments" href="#" title="Комментарии">2</a>
-      </div>
+      <article class="card  cards__item">
+
+        <a class="card__header" href="#">
+          <h2>Баку</h2>
+          <h3>1&nbsp;&mdash;4&nbsp;ноября&nbsp;2014</h3>
+        </a>
+
+
+        <div class="card__meta">
+          <a class="card__meta-item  card__meta-item-posts" href="#" title="Записи">3</a>
+          <a class="card__meta-item  card__meta-item-photos" href="#" title="Фотографии">24</a>
+          <a class="card__meta-item  card__meta-item-comments" href="#" title="Комментарии">2</a>
+        </div>
+
+        <div class="card__authors">
+          <a class="card__author  avatar" href="#" title="Аня" rel="author">
+            <img src="img/1649510405.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#" title="Дима" rel="author">
+            <img src="img/2950783290.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#" title="Костя" rel="author">
+            <img src="img/1068793232.jpg" alt="" width="300" height="300">
+          </a>
+        </div>
+
+  <!--
+  абсолютно спозиционированный элемент ломает работу space-between в мозилле, если он идет первым в контейнере, поэтому важно его убирать в конец контейнера, или хотя бы на второе место
+  -->
+        <a class="card__bg" style="background-image: url(../img/2014-11-01.jpg)" href="#"></a>
+
+      </article>
+      
+      
+      <article class="card  cards__item">
+
+        <a class="card__header" href="#">
+          <h2>Evian Tattoo Show 2014</h2>
+          <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
+        </a>
+
+
+        <div class="card__meta">
+          <a class="card__meta-item  card__meta-item-posts" href="#" title="Записи">1</a>
+          <a class="card__meta-item  card__meta-item-photos" href="#" title="Фотографии">39</a>
+          <a class="card__meta-item  card__meta-item-comments" href="#" title="Комментарии">0</a>
+        </div>
+
+        <div class="card__authors">
+          <a href="#" class="card__author  avatar" rel="author">
+            <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
+          </a>
+        </div>
+
+        <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
+      </article>
         
-      <div class="card__authors  authors">
-        <a class="authors__item  avatar" href="#" title="Аня" rel="author">
-          <img src="img/1649510405.jpg" alt="" width="300" height="300">
+      
+      <article class="card-post  cards__item">
+
+        <a class="card-post__header" href="#">
+          <h2>Evian Tattoo Show 2014</h2>
+          <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
         </a>
 
-        <a class="authors__item  avatar" href="#" title="Дима" rel="author">
-          <img src="img/2950783290.jpg" alt="" width="300" height="300">
+
+        <div class="card-post__meta">
+          <a class="card-post__meta-item  card-post__meta-item-views" href="#" title="Просмотры">1</a>
+          <a class="card__meta-item  card__meta-item-photos" href="#" title="Фотографии">39</a>
+          <a class="card__meta-item  card__meta-item-comments" href="#" title="Комментарии">0</a>
+        </div>
+
+        <div class="card-post__authors">
+          <a href="#" class="card-post__author  avatar" rel="author">
+            <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
+          </a>
+        </div>
+
+        <a class="card-post__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
+      </article>
+      
+      
+      <article class="card  cards__item">
+
+        <a class="card__header" href="#">
+          <h2>Юго-Восточная Азия</h2>
+          <h3>20&nbsp;декабря&nbsp;2014 &mdash; 11&nbsp;января&nbsp;2015</h3>
         </a>
 
-        <a class="authors__item  avatar" href="#" title="Костя" rel="author">
-          <img src="img/1068793232.jpg" alt="" width="300" height="300">
-        </a>
-      </div>
+        <div class="card__meta">
+          <a class="card__meta-item  card__meta-item-posts" href="#">10</a>
+          <a class="card__meta-item  card__meta-item-photos" href="#">62</a>
+          <a class="card__meta-item  card__meta-item-comments" href="#">11</a>
+        </div>
 
-    </article>
+        <div class="card__authors">
+          <a class="card__author  avatar" href="#">
+            <img src="img/628656815.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/3245064379.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/1649510405.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/2950783290.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/3203750414.jpg" alt="" width="300" height="300">
+          </a>
+
+          <a class="card__author  avatar" href="#">
+            <img src="img/4227828891.jpg" alt="" width="300" height="300">
+          </a>
+        </div>
+
+        <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
+
+      </article>
+      
+    </div>
+
 
     <div class="grid12">
       <div class="grid12__row  mb-10">
         
         <div class="grid12__span12  grid12__span4-tablet">
           
-          <article class="card  card--trip">
-            <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
+          <article class="card">
             
             <a class="card__header" href="#">
               <h2>Юго-Восточная Азия</h2>
@@ -65,26 +209,33 @@
               <a class="card__meta-item  card__meta-item-comments" href="#">11</a>
             </div>
             
-            <div class="card__authors  authors">
-              <div class="authors__item  avatar">
+            <div class="card__authors">
+              <a class="card__author  avatar" href="#">
                 <img src="img/628656815.jpg" alt="" width="300" height="300">
-              </div>
-              <div class="authors__item  avatar">
+              </a>
+              
+              <a class="card__author  avatar" href="#">
                 <img src="img/3245064379.jpg" alt="" width="300" height="300">
-              </div>
-              <div class="authors__item  avatar">
+              </a>
+              
+              <a class="card__author  avatar" href="#">
                 <img src="img/1649510405.jpg" alt="" width="300" height="300">
-              </div>
-              <div class="authors__item  avatar">
+              </a>
+              
+              <a class="card__author  avatar" href="#">
                 <img src="img/2950783290.jpg" alt="" width="300" height="300">
-              </div>
-              <div class="authors__item  avatar">
+              </a>
+              
+              <a class="card__author  avatar" href="#">
                 <img src="img/3203750414.jpg" alt="" width="300" height="300">
-              </div>
-              <div class="authors__item  avatar">
+              </a>
+              
+              <a class="card__author  avatar" href="#">
                 <img src="img/4227828891.jpg" alt="" width="300" height="300">
-              </div>
+              </a>
             </div>
+            
+            <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
             
           </article>
         </div>
@@ -92,9 +243,7 @@
         <div class="grid12__span12  grid12__span4-tablet">
           
           <article class="card">
-            
-            <a class="card__bg" style="background-image: url(../img/2014-11-01.jpg)" href="#"></a>
-            
+
             <a class="card__header" href="#">
               <h2>Баку</h2>
               <h3>1&nbsp;&mdash;4&nbsp;ноября&nbsp;2014</h3>
@@ -106,19 +255,21 @@
               <a class="card__meta-item  card__meta-item-comments" href="#">2</a>
             </div>
             
-            <div class="card__authors  authors">
-              <div class="authors__item  avatar">
+            <div class="card__authors">
+              <a class="card__author  avatar" href="#">
                 <img src="img/1649510405.jpg" alt="" width="300" height="300">
-              </div>
+              </a>
               
-              <div class="authors__item  avatar">
+              <a class="card__author  avatar" href="#">
                 <img src="img/2950783290.jpg" alt="" width="300" height="300">
-              </div>
+              </a>
 
-              <div class="authors__item  avatar">
+              <a class="card__author  avatar" href="#">
                 <img src="img/1068793232.jpg" alt="" width="300" height="300">
-              </div>
+              </a>
             </div>
+            
+            <a class="card__bg" style="background-image: url(../img/2014-11-01.jpg)" href="#"></a>
             
           </article>
           
@@ -128,12 +279,11 @@
         <div class="grid12__span12  grid12__span4-tablet">
           <article class="card">
            
-            <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
-            
             <a class="card__header" href="#">
               <h2>Evian Tattoo Show 2014</h2>
               <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
             </a>
+
 
             <div class="card__meta">
               <a class="card__meta-item  card__meta-item-posts" href="#" title="Записи">1</a>
@@ -141,10 +291,13 @@
               <a class="card__meta-item  card__meta-item-comments" href="#" title="Комментарии">0</a>
             </div>
             
-            <div class="card__authors  authors">
-              <a href="#" class="authors__item  avatar" rel="author"><img src="img/1855331185.jpg" alt="Денис" width="300" height="300"></a>
+            <div class="card__authors">
+              <a href="#" class="card__author  avatar" rel="author">
+                <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
+              </a>
             </div>
             
+            <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
           </article>
         </div>
       </div>
@@ -153,7 +306,40 @@
     <div class="grid12">
       <div class="grid12__row  mb-10">
         <div class="grid12__span12">
-          <div class="centered-text bordered">Span 12</div>
+          <div class="centered-text bordered">
+            <div class="authors">
+              <a href="#" class="authors__item  avatar" rel="author">
+                <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
+              </a>
+              <a class="authors__item  avatar" href="#">
+                <img src="img/1649510405.jpg" alt="" width="300" height="300">
+              </a>
+              
+              <a class="authors__item  avatar" href="#">
+                <img src="img/2950783290.jpg" alt="" width="300" height="300">
+              </a>
+
+              <a class="authors__item  avatar" href="#">
+                <img src="img/1068793232.jpg" alt="" width="300" height="300">
+              </a>
+
+              <a class="authors__item  avatar" href="#">
+                <img src="img/628656815.jpg" alt="" width="300" height="300">
+              </a>
+              
+              <a class="authors__item  avatar" href="#">
+                <img src="img/3245064379.jpg" alt="" width="300" height="300">
+              </a>
+
+              <a class="authors__item  avatar" href="#">
+                <img src="img/3203750414.jpg" alt="" width="300" height="300">
+              </a>
+              
+              <a class="authors__item  avatar" href="#">
+                <img src="img/4227828891.jpg" alt="" width="300" height="300">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="grid12__row  mb-10">

@@ -1,4 +1,4 @@
-@mixin generate-card($min-height: 150px, $text-color: $color-text-light, $card-border-radius: 10px, $padding: 15px, $inner-margin: 5px) {
+@mixin generate-card($min-height: 150px, $text-color: $color-text-light, $card-border-radius: 10px, $padding: 15px, $inner-margin: 5px, $avatar-size: 35px, $reverse: false) {
   position: relative;
   
   z-index: 1;
@@ -25,26 +25,29 @@
   
   &__header {
     display: block;
-    max-width: 70%;
+    
+    @if ($reverse == true) {
+      max-width: 100%;
+      order: 3;
+      align-self: flex-end;
+    } @else {
+      max-width: 70%;
+    }
     
     @include generate-link($color-text-light);
 
     h2 {
-      margin: 0 $inner-margin $inner-margin 0;
+      margin: 0 0 $inner-margin 0;
       padding: 0;
 
       font-size: f-base(2);
     }
     
     h3 {
-      margin: 0 $inner-margin 0 0;
+      margin: 0;
       
       font-size: f-base(1.6);
       font-weight: normal;
-
-      @media (min-width: $size-tablet) {
-        font-size: f-base(1.2);
-      }
     }
   }
   
@@ -62,7 +65,11 @@
     background-position: center;
     background-repeat: no-repeat;
     
-    transition: filter 0.3s linear, transform 0.3s ease-in-out;
+//    transition: filter 0.3s linear, transform 0.3s ease-in-out;
+    transition-property: filter, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: linear, ease-out;
+    
     @include transition-clipping-fix;
     
     &:after {
@@ -80,7 +87,8 @@
       @include transition-clipping-fix;
     }
   }
-  
+
+
   &:hover &__bg {
     transform: scale(1.2);
     filter: saturate(150%) blur(3px);
@@ -92,9 +100,18 @@
   
   
   &__meta {
+    position: relative;
+    z-index: 1;
+    
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    
+    @if ($reverse == true) {
+      order: 2;
+      align-self: flex-start;
+    }
+    max-width: 30%;
     
     margin-top: -$inner-margin;
     margin-right: -$inner-margin;
@@ -131,12 +148,13 @@
         z-index: -1;
         
         display: block;
-        width: 200%;
+        width: 150%;
         height: 100%;
-        
+
         top: 0;
-        left: 200%;
+        left: 150%;
         
+        opacity: 0;
         
         border-radius: ($border-radius/2);
         background-color: transparentize($color-accent-orange, 0.1);
@@ -152,6 +170,8 @@
         
         
         &:after {
+          opacity: 1;
+
           transform: translateX(-105%);
         }
       }
@@ -171,15 +191,34 @@
       &-comments:before {
         content: $fa-var-comments;
       }
+      
+      
+      &-views:before {
+        content: $fa-var-eye;
+      }
     }
   }
   
   
   &__authors {
-    flex-basis: 100%;
-    flex-grow: 1;
-    margin-left: -$author-item-margin;
-    margin-bottom: -$author-item-margin;
+    @include generate-authors();
+    
+    margin-left: -$inner-margin;
+    margin-bottom: -$inner-margin;
+    
+    @if ($reverse == true) {
+      flex-basis: 70%;
+      flex-grow: 0;
+      order: 1;
+    } @else {      
+      flex-basis: 100%;
+      flex-grow: 1;
+    }
+  }
+  
+  
+  &__author {
+    @include generate-authors-item($avatar-size, $inner-margin);
   }
 
 
@@ -189,5 +228,9 @@
 }
 
 .card {
-  @include generate-card();
+  @include generate-card($inner-margin: 5px, $avatar-size: 35px);
+}
+
+.card-post {
+  @include generate-card($inner-margin: 5px, $avatar-size: 50px, $reverse: true);
 }

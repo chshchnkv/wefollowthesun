@@ -1,19 +1,25 @@
-$author-item-size: 35px;
-$author-item-margin: 5px;
-
-.authors {
+@mixin generate-authors() {
   display: flex;
   justify-content: flex-start;
   align-content: space-between;
   flex-wrap: wrap;
+}
+
+@mixin generate-authors-item($size, $margin) {
+
+  flex-basis: $size;
+  margin: $margin;
+
+//  @media (min-width: $size-tablet) {
+//    flex-basis: ($size * 2);
+//    margin: ($margin * 2);
+//  }
+}
+
+.authors {
+  @include generate-authors();
   
   &__item {
-    flex-basis: $author-item-size;
-    margin: $author-item-margin;
-    
-    @media (min-width: $size-tablet) {
-      flex-basis: ($author-item-size * 2);
-      margin: ($author-item-margin * 2);
-    }
-  }  
+    @include generate-authors-item(100px, 10px);
+  }
 }

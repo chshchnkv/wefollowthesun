@@ -1,6 +1,7 @@
 @include generate-grid(12, $sizes);
 
 .bordered {
+  width: 100%;
   padding: 10px;
   font-size: $h5;
   border: 1px solid $color-bg-darker;

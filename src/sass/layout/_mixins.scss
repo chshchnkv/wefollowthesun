@@ -68,13 +68,18 @@
 }
 
 @mixin col($col_num, $columns) {
+  
   @if ($col_num == $columns) {
-    flex-basis: 100%;
+    $fb: 100%;
     margin: 0;
   } 
   @else {  
-    flex-basis: 100%/$columns * $col_num;
+    $fb: (100%/$columns * $col_num);
   }
+
+  flex-basis: $fb;
+  max-width: $fb;
+  display: flex;
 }
 
 /// Генерация колонки по номеру, общему числу колонок
