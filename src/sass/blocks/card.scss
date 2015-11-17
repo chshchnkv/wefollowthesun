@@ -1,4 +1,15 @@
-@mixin generate-card($min-height: 150px, $text-color: $color-text-light, $card-border-radius: 10px, $padding: 15px, $inner-margin: 5px, $avatar-size: 35px, $reverse: false) {
+@mixin generate-card(
+          $min-height: 150px, 
+          $text-color: $color-text-light, 
+          $card-border-radius: 10px, 
+          $padding: 15px, 
+          $inner-margin: 5px, 
+          $avatar-size: 35px, 
+          $reverse: false, 
+          $header_1_base: 2,
+          $header_2_base: 1.6
+          ) {
+  
   position: relative;
   
   z-index: 1;
@@ -40,13 +51,13 @@
       margin: 0 0 $inner-margin 0;
       padding: 0;
 
-      font-size: f-base(2);
+      font-size: f-base($header_1_base);
     }
     
     h3 {
       margin: 0;
       
-      font-size: f-base(1.6);
+      font-size: f-base($header_2_base);
       font-weight: normal;
     }
   }
@@ -117,7 +128,7 @@
     margin-right: -$inner-margin;
     margin-bottom: ($inner-margin * 2);
     
-    font-size: f-base(2);
+    font-size: f-base($header_1_base);
 
     &-item {
       position: relative;
@@ -136,7 +147,7 @@
         margin-right: ($inner-margin * 2);
         
         @include fa-icon();
-        font-size: f-base(1.8);
+        font-size: f-base(($header_1_base * 0.9));
         
         border: none;
       }
@@ -184,7 +195,7 @@
       
       &-photos:before {
         content: $fa-var-camera;
-        font-size: f-base(1.6);
+        font-size: f-base($header_1_base * 0.8);
       }
       
       
@@ -233,4 +244,8 @@
 
 .card-post {
   @include generate-card($inner-margin: 5px, $avatar-size: 50px, $reverse: true);
+}
+
+.card-opened {
+  @include generate-card($inner-margin: 10px, $avatar-size: 44px)
 }
