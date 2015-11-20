@@ -1,0 +1,45 @@
+@mixin make-row-flex() {
+  display: flex;
+  flex-wrap: wrap;
+
+  > [class *= "col-"] {
+    float: none;
+    display: flex;
+
+
+    > * {
+      flex-grow: 1;
+    }
+  }  
+}
+
+
+[class *= "container"] {
+  &:before, &:after {
+    content: none;
+  }
+}
+
+.row {
+
+  &:before, &:after {
+    content: none;
+  }
+  
+  
+  &--inline-blocks {
+    font-size: 0;
+
+    > [class *= "col-"] {
+      float: none;
+      display: inline-block;
+      vertical-align: top;
+      font-size: $font-size-base;
+    }    
+  }
+  
+  
+  &--flex {
+    @include make-row-flex();
+  }
+}

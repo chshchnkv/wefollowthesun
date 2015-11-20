@@ -1,0 +1,14 @@
+@mixin flex-size-fix {
+  /*
+    flex-basis и flex-grow здесь - это для исправления поведения в safari,
+    хотя может быть еще где-то
+    */
+
+  flex-basis: auto;
+//  flex-grow: 1;
+}
+
+
+@mixin transition-clipping-fix {
+  backface-visibility: hidden;
+}

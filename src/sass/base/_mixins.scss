@@ -27,14 +27,11 @@
 }
 
 
-@mixin size($width: 0, $height: 0) {
-  width: $width;
-  height: $height;
-}
-
-
-@mixin transition ($what: all, $duration: .3s, $timing: ease-out) {
-  transition: $what $duration $timing;
+@mixin transition ($what: all, $duration: .2s, $timing: ease-out, $delay: 0) {
+  transition-property: $what;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
 }
 
 
@@ -100,12 +97,24 @@
 @mixin generate-link($color: $color-text-light) {
   color: $color;
   text-decoration: none;
-  
-  &:hover {
+}
+
+
+@mixin media-mobile-safe ($viewport-size) {
+  @if $viewport-size == $size-mobile {
+    @content;
+  } @else {
+    @media (min-width: $viewport-size) {
+      @content;
+    }
   }
 }
 
 
-@for $i from 1 through 20 {
+@for $i from 0 through 20 {
+  .mt-#{$i*5} {margin-top: 5px * $i}
+  .ml-#{$i*5} {margin-left: 5px * $i}
   .mb-#{$i*5} {margin-bottom: 5px * $i}
+  .mr-#{$i*5} {margin-right: 5px * $i}
+  .m-#{$i*5} {margin: 5px * $i}
 }

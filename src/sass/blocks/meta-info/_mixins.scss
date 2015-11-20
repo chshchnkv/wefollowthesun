@@ -1,0 +1,114 @@
+@mixin generate-meta-info(
+  $meta-basis: 5px,
+  $meta-font-color: $color-text-dark,
+  $meta-accent-color: $color-accent-orange,
+  $meta-font-multiplier: 1 ) {
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  /* без этого в сафари все уезжает куда-то */
+  flex-basis: auto;
+    
+  word-wrap: break-word;
+
+  font-size: f-base(2 * $meta-font-multiplier);
+  line-height: 1;
+    
+  @media (min-width: $screen-md) {
+    font-size: f-base(2.2 * $meta-font-multiplier);    
+    border-radius: $meta-basis;
+  }
+
+  @media (min-width: $screen-lg) {
+    font-size: f-base(2.4 * $meta-font-multiplier);
+  }
+
+
+  &__item {
+    display: block;
+    position: relative;
+    padding: $meta-basis;
+    padding-left: 1.5em;
+
+    @include generate-link($meta-font-color);
+    text-align: right;
+
+    &:before {
+      content: "";
+      
+      position: absolute;
+      left: $meta-basis;
+      top: 0;
+      @include centerV;
+      
+      display: block;
+
+      @include fa-icon();
+      font-size: 0.9em;
+
+      border: none;
+    }
+
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+
+      display: block;
+      width: 150%;
+      height: 100%;
+
+      top: 0;
+      left: 150%;
+
+      opacity: 0;
+
+      border-radius: ($meta-basis * 2);
+      background-color: transparentize($meta-accent-color, 0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,.5);
+
+      transition: transform .2s ease-out, opacity .2s ease-in;
+      @include transition-clipping-fix;
+      
+      @media (min-width: $screen-sm) {
+        border-radius: $meta-basis;
+      }
+    }
+
+
+    &:hover {
+      text-shadow: 0 0 3px rgba(0,0,0,.5);
+
+
+      &:after {
+        opacity: 1;
+
+        transform: translateX(-105%);
+      }
+    }
+
+
+    &--posts:before {
+      content: $fa-var-pencil;
+    }
+
+
+    &--photos:before {
+      content: $fa-var-camera;
+      font-size: 0.8em;
+    }
+
+
+    &--comments:before {
+      content: $fa-var-comments;
+    }
+
+
+    &--views:before {
+      content: $fa-var-eye;
+    }
+  }
+}

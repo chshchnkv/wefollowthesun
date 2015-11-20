@@ -237,15 +237,3 @@
     border-radius: ($border-radius/2);
   }
 }
-
-.card {
-  @include generate-card($inner-margin: 5px, $avatar-size: 35px);
-}
-
-.card-post {
-  @include generate-card($inner-margin: 5px, $avatar-size: 50px, $reverse: true);
-}
-
-.card-opened {
-  @include generate-card($inner-margin: 10px, $avatar-size: 44px)
-}

@@ -2,6 +2,6 @@
     @return $value / ($value * 0 + 1);
 }
 
-@function f-base($multiply: 1.0) {
-  @return ($font-base * $multiply);
+@function f-base($multiply: 1.0, $base: $font-base) {
+  @return ($base * $multiply);
 }

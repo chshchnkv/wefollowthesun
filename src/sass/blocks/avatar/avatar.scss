@@ -3,18 +3,22 @@
   
   display: block;
   overflow: hidden;
-    
+  @include cover;
+  
+  color: $color-text-light;
+  
   border-radius: 50%;
 
   img {
     @include cover;
+    
+    margin: 0 auto;
   }
   
-  @include transition;
+  @include transition(transform, .2s, ease-in-out);
   @include transition-clipping-fix;
   
   &:hover {
-//    border-radius: ($border-radius/2);
     box-shadow: 0 0 10px rgba(0,0,0,.5);
     transform: scale(1.2);
   }

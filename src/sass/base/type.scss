@@ -15,32 +15,69 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+
+h1, .h1 {
   font-size: $h1;
   font-weight: 700;
 }
 
-h2 {
+
+h2, .h2 {
   font-size: $h2;
   font-weight: 700;
 }
 
-h3 {
+
+h3, .h3 {
   font-size: $h3;
 }
 
-h4, h5 {
+
+h4, .h4,  h5, .h5 {
   font-size: $h4;
 }
 
-h6 {
+
+h6, .h6 {
   font-size: $h6;
 }
 
-p {
+
+p, .p {
   font-size: $font-normal; 
 }
 
-.centered-text {
+
+.text-left {
+  text-align: left;
+}
+
+
+.text-center {
   text-align: center;
+}
+
+
+.text-right {
+  text-align: right;
+}
+
+
+.text-justify {
+  text-align: justify;
+}
+
+
+.text-top {
+  vertical-align: top;
+}
+
+
+.text-middle {
+  vertical-align: middle;
+}
+
+
+.text-bottom {
+  vertical-align: bottom;
 }

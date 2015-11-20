@@ -1,13 +1,29 @@
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+
 @font-face {
-	font-family: "PT Sans Narrow";
-	font-style: normal;
-	font-weight: 400;
-	src: local("PT Sans Narrow"), local("PTSans-Narrow"), url("../fonts/pt-sans narrow-400-normal.woff2") format("woff2"), url("../fonts/pt-sans narrow-400-normal.woff") format("woff");
+  font-family: "PT Sans Narrow";
+//    src: local("PT Sans Narrow"), local("PTSans-Narrow");
+  src: url("../fonts/PTN57F_W.eot");
+  src: 
+    url("../fonts/PTN57F_W.eot?#iefix") format('embedded-opentype'),
+    url("../fonts/PTN57F_W.woff") format("woff"),
+    url("../fonts/PTN57F_W.ttf") format("truetype"),
+    url("../fonts/PTN57F_W.svg") format("svg");
+
+  font-style: normal;
+  font-weight: normal;
 }
 
 @font-face {
-	font-family: "PT Sans Narrow";
-	font-style: normal;
-	font-weight: 700;
-	src: local("PT Sans Narrow Bold"), local("PTSans-NarrowBold"), url("../fonts/pt-sans narrow-700-normal.woff2") format("woff2"), url("../fonts/pt-sans narrow-700-normal.woff") format("woff");
+  font-family: "PT Sans Narrow";
+//	src: local("PT Sans Narrow Bold"), local("PTSans-NarrowBold");
+  src: url("../fonts/PTN77F_W.eot");
+  src:
+    url("../fonts/PTN77F_W.eot?#iefix") format('embedded-opentype'),
+    url("../fonts/PTN77F_W.woff") format("woff"),
+    url("../fonts/PTN77F_W.ttf") format("truetype"),
+    url("../fonts/PTN77F_W.svg") format("svg");
+
+  font-style: normal;
+  font-weight: bold;
 }

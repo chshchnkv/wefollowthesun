@@ -40,7 +40,3 @@
   animation-direction: reverse;
   transition-timing-function: ease-in;
 }
-
-@mixin transition-clipping-fix {
-  backface-visibility: hidden;
-}
