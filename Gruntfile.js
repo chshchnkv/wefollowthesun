@@ -158,22 +158,37 @@ module.exports = function(grunt) {
       }
     },
     
-    googlefonts: {
-      build: {
-        options: {
-          fontPath: "src/fonts",
-          fonts: [
-            {
-              family: "PT Sans Narrow",
-              styles: [
-                400, 700
-              ]
-            }
-          ]
+    concat: {
+      main: {
+        src: [
+          "node_modules/mustache/mustache.min.js",
+          "node_modules/moment/min/moment-with-locales.min.js",
+          "src/js/blocks/header/header.js"
+        ],
+        dest: "build/js/scripts.js"
+      }
+    },
+    
+    uglify: {
+      main: {
+        files: {
+          "build/js/scripts.min.js": ["build/js/scripts.js"]
         }
       }
-    }
+    },
   };
+  
+  grunt.registerTask("build", [
+    "clean",
+    "copy",
+    "sass",
+    "cmq",
+    "postcss",
+    "cssmin",
+//    "imagemin",
+    "concat",
+    "uglify"
+  ]);
   
   grunt.initConfig(config);
   

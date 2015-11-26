@@ -1,0 +1,31 @@
+.toggle {
+  position: relative;
+
+  font-size: inherit;
+  line-height: inherit;
+  font-style: normal;
+  
+
+  &:before {
+    content: "\f078";
+    position: absolute;
+    left: 0;
+    @include centerV;
+    @include transition;
+
+    display: block;
+
+    margin-left: 5px;
+
+    font-family: "FontAwesome";
+    font-size: f-base(1.25);
+    line-height: 1;
+  }
+
+
+  &--opened {
+    &:before {
+      transform: rotateZ(180deg) translateY(50%);
+    }
+  } 
+}

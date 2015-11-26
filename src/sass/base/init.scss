@@ -19,3 +19,8 @@ html {
 a {
   @include generate-link($color-text-dark);
 }
+
+
+body {
+//  padding-top: $header-size;
+}

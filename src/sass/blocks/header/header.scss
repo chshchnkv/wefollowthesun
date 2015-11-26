@@ -1,0 +1,140 @@
+$html-size-base: 10px;
+$menu-v-padding: 20px;
+
+.main-navigation {
+  z-index: 2;
+  
+  width: 100%;
+  min-height: 5rem;
+
+  font-family: $font-family;
+  font-size: 2.1rem;
+  font-weight: bold;
+  line-height: 1;
+  
+  color: $color-text-light;
+  background-color: transparentize($color-text-dark,.1);
+
+  @media (min-width: $screen-sm) {
+    font-size: 2.5rem;
+    color: $color-text-dark;
+
+    background-color: transparent;
+    border-bottom: 1px solid $color-text-light;
+  }
+  
+  
+  a {
+    @include generate-link;
+    
+    @media (min-width: $screen-sm) {
+      @include generate-link($color-text-dark);
+    }
+  }
+  
+  
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 5rem;
+    height: 5rem;
+    
+    font-size: 3rem;
+    font-weight: 700;
+
+    &:hover {
+      background-color: fade-out(#fff, .9);
+    }
+  }
+  
+  
+  &__title {
+    min-height: 5rem;
+    padding: 1.25rem 5rem;
+    
+    font-size: 2.5rem;
+    text-align: center;
+    
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+    
+    @media (min-width: $screen-md) {
+      position: absolute;
+      left: 5rem;
+      
+      display: block;
+      padding-left: 0;
+    }
+  }
+  
+  
+  &__menu {
+    flex-direction: column;
+    align-items: stretch;
+    
+    display: none;
+    
+    &--opened {
+      display: flex;
+    }
+    
+    @media (min-width: $screen-sm) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  
+  
+  &__item {
+    
+    position: relative;
+    
+    border-top: 1px solid $color-text-light;
+    
+    @include transition;
+    
+    @media (min-width: $screen-sm) {
+      border: none;
+    }
+    
+    a {
+      display: block;
+      min-height: 5rem;
+      
+      padding: 1.25rem;
+      
+      text-align: center;
+    }
+    
+    &:hover {
+      background-color: fade-out(#fff, .9);
+    }
+  }
+  
+  
+  &__search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 5rem;
+    height: 5rem;
+
+    &:hover {
+      background-color: fade-out(#fff, .9);
+    }
+  }
+}

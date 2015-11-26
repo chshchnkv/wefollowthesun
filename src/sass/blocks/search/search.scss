@@ -1,0 +1,11 @@
+.search {
+  
+  &:before {
+    content: "\f002";
+    font-family: "FontAwesome";
+    font-size: inherit;
+    font-weight: normal;
+    color: inherit;
+  }
+  
+}

@@ -1,5 +1,6 @@
 @import "../../../node_modules/font-awesome/scss/font-awesome";
 
+
 @font-face {
   font-family: "PT Sans Narrow";
 //    src: local("PT Sans Narrow"), local("PTSans-Narrow");
@@ -14,6 +15,7 @@
   font-weight: normal;
 }
 
+
 @font-face {
   font-family: "PT Sans Narrow";
 //	src: local("PT Sans Narrow Bold"), local("PTSans-NarrowBold");
@@ -26,4 +28,18 @@
 
   font-style: normal;
   font-weight: bold;
+}
+
+
+@font-face {
+  font-family: "FollowMan";
+//  src: url("../fonts/PTN57F_W.eot");
+  src: 
+//    url("../fonts/PTN57F_W.eot?#iefix") format('embedded-opentype'),
+//    url("../fonts/PTN57F_W.woff") format("woff"),
+    url("../fonts/Follow-Man.ttf") format("truetype");/*,
+    url("../fonts/PTN57F_W.svg") format("svg");*/
+
+  font-style: normal;
+  font-weight: normal;
 }
