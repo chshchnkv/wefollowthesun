@@ -163,7 +163,8 @@ module.exports = function(grunt) {
         src: [
           "node_modules/mustache/mustache.min.js",
           "node_modules/moment/min/moment-with-locales.min.js",
-          "src/js/blocks/header/header.js"
+          "src/js/blocks/header/header.js",
+          "src/js/blocks/search/search.js"
         ],
         dest: "build/js/scripts.js"
       }
