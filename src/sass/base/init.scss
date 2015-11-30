@@ -10,9 +10,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
   
-  @if (variable-exists(outline-debug)) {
-    outline: 1px dotted rgba(255, 0, 0, 0.8);
-  }
+  @include outline;
 }
 
 

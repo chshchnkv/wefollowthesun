@@ -9,10 +9,10 @@
 <body>
   
   <header class="page-header">
-    <nav class="main-navigation">
+    <nav class="main-navigation  mb-10">
      
       <div class="main-navigation__logo">
-         <a class="logo" href="index.html"></a>
+         <a class="followman" href="index.html"></a>
       </div>
 
 
@@ -53,290 +53,315 @@
   </header>
   
   
-  <div class="container  container--flex">
+  <main>
+    <div class="container  container--flex">
+      
+    <!--
+      <div class="row  row--flex">
+        <div class="col-xs-4">
+          <h1 class="m-5">Heading 1</h1>
+        </div>
+        <div class="col-xs-4">
+          <h2 class="m-5">Heading 2</h2>
+        </div>
+        <div class="col-xs-4">
+          <h3 class="m-5">Heading 3</h3>
+        </div>
+        <div class="col-xs-4">
+          <h4 class="m-5">Heading 4</h4>
+        </div>
+        <div class="col-xs-4">
+          <h5 class="m-5">Heading 5</h5>
+        </div>
+        <div class="col-xs-4">
+          <h6 class="m-5">Heading 6</h6>
+        </div>
+      </div>
+    -->
+      
+      <div class="row  row--flex">
+       
+        <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
+          <article class="card  cards__item">
+          
+            <a class="card__header" href="#">
+              <h2>Юго-Восточная Азия</h2>
+              <h3>20&nbsp;декабря&nbsp;2014 &mdash; 11&nbsp;января&nbsp;2015</h3>
+            </a>
+          
+            <div class="card__meta  meta-info">
+              <a class="meta-info__item  meta-info__item--posts" href="#">10</a>
+              <a class="meta-info__item  meta-info__item--photos" href="#">62</a>
+              <a class="meta-info__item  meta-info__item--comments" href="#">11</a>
+            </div>
+          
+            <div class="card__authors">
+              <div class="card__author">
+                <a class="avatar" href="">
+                  <img src="img/628656815.jpg" alt="" width="300" height="300">
+                </a>
+              </div>
+          
+              <div class="card__author">
+                <a class="avatar" href="#">
+                  <img src="img/3245064379.jpg" alt="" width="300" height="300">
+                </a>
+              </div>
+          
+              <div class="card__author">
+                <a class="avatar" href="#">
+                  <img src="img/1649510405.jpg" alt="" width="300" height="300">
+                </a>
+              </div>
+          
+              <div class="card__author">
+                <a class="avatar" href="#">
+                  <img src="img/2950783290.jpg" alt="" width="300" height="300">
+                </a>
+              </div>
+          
+              <div class="card__author">
+                <a class="avatar" href="#">
+                  <img src="img/3203750414.jpg" alt="" width="300" height="300">
+                </a>
+              </div>
+          
+              <div class="card__author">
+                <a class="avatar" href="#">
+                  <img src="img/4227828891.jpg" alt="" width="300" height="300">
+                </a>
+              </div>
     
-    <div class="row  row--flex">
-      <div class="col-xs-4">
-        <h1 class="m-5">Heading 1</h1>
-      </div>
-      <div class="col-xs-4">
-        <h2 class="m-5">Heading 2</h2>
-      </div>
-      <div class="col-xs-4">
-        <h3 class="m-5">Heading 3</h3>
-      </div>
-      <div class="col-xs-4">
-        <h4 class="m-5">Heading 4</h4>
-      </div>
-      <div class="col-xs-4">
-        <h5 class="m-5">Heading 5</h5>
-      </div>
-      <div class="col-xs-4">
-        <h6 class="m-5">Heading 6</h6>
-      </div>
-    </div>
-    
-    <div class="row  row--flex">
-     
-      <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
-        <article class="card  cards__item">
+            </div>
+          
+            <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
+          
+          </article>
+        </div>
         
+        <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
+          <article class="card  cards__item">
+    
+          <a class="card__header" href="#">
+            <h2>Баку</h2>
+            <h3>1&nbsp;&mdash;4&nbsp;ноября&nbsp;2014</h3>
+          </a>
+    
+    
+          <div class="card__meta  meta-info">
+            <a class="meta-info__item  meta-info__item--posts" href="#" title="Записи">3</a>
+            <a class="meta-info__item  meta-info__item--photos" href="#" title="Фотографии">24</a>
+            <a class="meta-info__item  meta-info__item--comments" href="#" title="Комментарии">2</a>
+          </div>
+    
+          <div class="card__authors">
+            <a class="card__author" href="#" title="Аня" rel="author">
+              <div class="avatar">
+                <img src="img/1649510405.jpg" alt="" width="300" height="300">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#" title="Дима" rel="author">
+              <div class="avatar">
+                <img src="img/2950783290.jpg" alt="" width="300" height="300">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#" title="Костя" rel="author">
+              <div class="avatar">
+                <img src="img/1068793232.jpg" alt="" width="300" height="300">
+              </div>
+            </a>
+          </div>
+    
+    <!--
+    абсолютно спозиционированный элемент ломает работу space-between в мозилле, если он идет первым в контейнере, поэтому важно его убирать в конец контейнера, или хотя бы на второе место
+    -->
+          <a class="card__bg" style="background-image: url(../img/2014-11-01.jpg)" href="#"></a>
+    
+        </article>
+        </div>
+        
+        <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
+          <article class="card  cards__item">
+    
+          <a class="card__header" href="#">
+            <h2>Evian Tattoo Show 2014</h2>
+            <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
+          </a>
+    
+    
+          <div class="card__meta  meta-info">
+            <a class="meta-info__item  meta-info__item--posts" href="#" title="Записи">1</a>
+            <a class="meta-info__item  meta-info__item--photos" href="#" title="Фотографии">39</a>
+            <a class="meta-info__item  meta-info__item--comments" href="#" title="Комментарии">0</a>
+          </div>
+    
+          <div class="card__authors">
+            <a href="#" class="card__author" rel="author">
+              <div class="avatar">
+                <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
+              </div>
+            </a>
+          </div>
+    
+          <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
+        </article>
+        </div>
+    
+        <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
+          <article class="card  card--trip">
+    
+          <a class="card__header" href="#">
+            <h2>Evian Tattoo Show 2014</h2>
+            <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
+          </a>
+    
+    
+          <div class="card__meta  meta-info">
+            <a class="meta-info__item  meta-info__item--views" href="#" title="Просмотры">1</a>
+            <a class="meta-info__item  meta-info__item--photos" href="#" title="Фотографии">39</a>
+            <a class="meta-info__item  meta-info__item--comments" href="#" title="Комментарии">0</a>
+          </div>
+    
+          <div class="card__authors">
+            <a href="#" class="card__author" rel="author">
+              <div class="avatar">
+                <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
+              </div>
+            </a>
+          </div>
+    
+          <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
+        </article>
+        </div>
+        
+        <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
+          <article class="card  cards__item">
+    
           <a class="card__header" href="#">
             <h2>Юго-Восточная Азия</h2>
             <h3>20&nbsp;декабря&nbsp;2014 &mdash; 11&nbsp;января&nbsp;2015</h3>
           </a>
-        
+    
           <div class="card__meta  meta-info">
             <a class="meta-info__item  meta-info__item--posts" href="#">10</a>
             <a class="meta-info__item  meta-info__item--photos" href="#">62</a>
             <a class="meta-info__item  meta-info__item--comments" href="#">11</a>
           </div>
-        
+    
           <div class="card__authors">
-            <div class="card__author">
-              <a class="avatar" href="">
+            <a class="card__author" href="#">
+              <div class="avatar">
                 <img src="img/628656815.jpg" alt="" width="300" height="300">
-              </a>
-            </div>
-        
-            <div class="card__author">
-              <a class="avatar" href="#">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#">
+              <div class="avatar">
                 <img src="img/3245064379.jpg" alt="" width="300" height="300">
-              </a>
-            </div>
-        
-            <div class="card__author">
-              <a class="avatar" href="#">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#">
+              <div class="avatar">
                 <img src="img/1649510405.jpg" alt="" width="300" height="300">
-              </a>
-            </div>
-        
-            <div class="card__author">
-              <a class="avatar" href="#">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#">
+              <div class="avatar">
                 <img src="img/2950783290.jpg" alt="" width="300" height="300">
-              </a>
-            </div>
-        
-            <div class="card__author">
-              <a class="avatar" href="#">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#">
+              <div class="avatar">
                 <img src="img/3203750414.jpg" alt="" width="300" height="300">
-              </a>
-            </div>
-        
-            <div class="card__author">
-              <a class="avatar" href="#">
+              </div>
+            </a>
+    
+            <a class="card__author" href="#">
+              <div class="avatar">
                 <img src="img/4227828891.jpg" alt="" width="300" height="300">
-              </a>
-            </div>
-
+              </div>
+            </a>
           </div>
-        
+    
           <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
-        
+    
         </article>
+        </div>
       </div>
       
-      <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
-        <article class="card  cards__item">
-
-        <a class="card__header" href="#">
-          <h2>Баку</h2>
-          <h3>1&nbsp;&mdash;4&nbsp;ноября&nbsp;2014</h3>
-        </a>
-
-
-        <div class="card__meta  meta-info">
-          <a class="meta-info__item  meta-info__item--posts" href="#" title="Записи">3</a>
-          <a class="meta-info__item  meta-info__item--photos" href="#" title="Фотографии">24</a>
-          <a class="meta-info__item  meta-info__item--comments" href="#" title="Комментарии">2</a>
+      <div class="row  row--flex">
+        <div class="col-xs-6"><span class="logo  logo--block"></span>
+        <div class="col-xs-6"><span class="logo  logo--block"></span>
         </div>
-
-        <div class="card__authors">
-          <a class="card__author" href="#" title="Аня" rel="author">
-            <div class="avatar">
-              <img src="img/1649510405.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#" title="Дима" rel="author">
-            <div class="avatar">
-              <img src="img/2950783290.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#" title="Костя" rel="author">
-            <div class="avatar">
-              <img src="img/1068793232.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-        </div>
-
-  <!--
-  абсолютно спозиционированный элемент ломает работу space-between в мозилле, если он идет первым в контейнере, поэтому важно его убирать в конец контейнера, или хотя бы на второе место
-  -->
-        <a class="card__bg" style="background-image: url(../img/2014-11-01.jpg)" href="#"></a>
-
-      </article>
+      </div>
+    <!--
+      <div class="row  row--flex">
+        <div class="col-xs-12"><a href="#" class="avatar"><img src="img/628656815.jpg" alt="" width="300" height="300"></a></div>
       </div>
       
-      <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
-        <article class="card  cards__item">
-
-        <a class="card__header" href="#">
-          <h2>Evian Tattoo Show 2014</h2>
-          <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
-        </a>
-
-
-        <div class="card__meta  meta-info">
-          <a class="meta-info__item  meta-info__item--posts" href="#" title="Записи">1</a>
-          <a class="meta-info__item  meta-info__item--photos" href="#" title="Фотографии">39</a>
-          <a class="meta-info__item  meta-info__item--comments" href="#" title="Комментарии">0</a>
-        </div>
-
-        <div class="card__authors">
-          <a href="#" class="card__author" rel="author">
-            <div class="avatar">
-              <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
-            </div>
-          </a>
-        </div>
-
-        <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
-      </article>
-      </div>
-
-      <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
-        <article class="card  card--trip">
-
-        <a class="card__header" href="#">
-          <h2>Evian Tattoo Show 2014</h2>
-          <h3>1&nbsp;&mdash;10&nbsp;октября&nbsp;2014</h3>
-        </a>
-
-
-        <div class="card__meta  meta-info">
-          <a class="meta-info__item  meta-info__item--views" href="#" title="Просмотры">1</a>
-          <a class="meta-info__item  meta-info__item--photos" href="#" title="Фотографии">39</a>
-          <a class="meta-info__item  meta-info__item--comments" href="#" title="Комментарии">0</a>
-        </div>
-
-        <div class="card__authors">
-          <a href="#" class="card__author" rel="author">
-            <div class="avatar">
-              <img src="img/1855331185.jpg" alt="Денис" width="300" height="300">
-            </div>
-          </a>
-        </div>
-
-        <a class="card__bg" style="background-image: url(../img/2014-10-01.jpg)" href="#"></a>
-      </article>
+      <div class="row  row--flex">
+        <div class="col-xs-6"><a href="#" class="avatar"><img src="img/3245064379.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-6"><a href="#" class="avatar"><img src="img/3245064379.jpg" alt="" width="300" height="300"></a></div>
       </div>
       
-      <div class="col-xs-12  col-sm-6  col-md-4  mb-10">
-        <article class="card  cards__item">
-
-        <a class="card__header" href="#">
-          <h2>Юго-Восточная Азия</h2>
-          <h3>20&nbsp;декабря&nbsp;2014 &mdash; 11&nbsp;января&nbsp;2015</h3>
-        </a>
-
-        <div class="card__meta  meta-info">
-          <a class="meta-info__item  meta-info__item--posts" href="#">10</a>
-          <a class="meta-info__item  meta-info__item--photos" href="#">62</a>
-          <a class="meta-info__item  meta-info__item--comments" href="#">11</a>
-        </div>
-
-        <div class="card__authors">
-          <a class="card__author" href="#">
-            <div class="avatar">
-              <img src="img/628656815.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#">
-            <div class="avatar">
-              <img src="img/3245064379.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#">
-            <div class="avatar">
-              <img src="img/1649510405.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#">
-            <div class="avatar">
-              <img src="img/2950783290.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#">
-            <div class="avatar">
-              <img src="img/3203750414.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-
-          <a class="card__author" href="#">
-            <div class="avatar">
-              <img src="img/4227828891.jpg" alt="" width="300" height="300">
-            </div>
-          </a>
-        </div>
-
-        <a class="card__bg" style="background-image: url(../img/2014-12-21.jpg)" href="#"></a>
-
-      </article>
+      <div class="row  row--flex">
+        <div class="col-xs-4"><a href="#" class="avatar"><img src="img/1649510405.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-4"><a href="#" class="avatar"><img src="img/1649510405.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-4"><a href="#" class="avatar"><img src="img/1649510405.jpg" alt="" width="300" height="300"></a></div>
       </div>
+      
+      <div class="row  row--flex">
+        <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
+      </div>
+      
+      <div class="row  row--flex">
+        <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
+      </div>
+    
+      <div class="row  row--flex">
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+        <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
+      </div>
+    -->
+    </div>
+  </main>
+  
+  
+  <footer class="page-footer  container">
+    <div class="page-footer__title">
+      We&nbsp;Follow&nbsp;the&nbsp;Sun!
     </div>
     
-    <div class="row  row--flex">
-      <div class="col-xs-12"><a href="#" class="avatar"><img src="img/628656815.jpg" alt="" width="300" height="300"></a></div>
+    
+    <div class="page-footer__logo">
+      <span class="logo"></span>
     </div>
     
-    <div class="row  row--flex">
-      <div class="col-xs-6"><a href="#" class="avatar"><img src="img/3245064379.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-6"><a href="#" class="avatar"><img src="img/3245064379.jpg" alt="" width="300" height="300"></a></div>
-    </div>
-    
-    <div class="row  row--flex">
-      <div class="col-xs-4"><a href="#" class="avatar"><img src="img/1649510405.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-4"><a href="#" class="avatar"><img src="img/1649510405.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-4"><a href="#" class="avatar"><img src="img/1649510405.jpg" alt="" width="300" height="300"></a></div>
-    </div>
-    
-    <div class="row  row--flex">
-      <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-3"><a href="#" class="avatar"><img src="img/2950783290.jpg" alt="" width="300" height="300"></a></div>
-    </div>
-    
-    <div class="row  row--flex">
-      <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-2"><a href="#" class="avatar"><img src="img/3203750414.jpg" alt="" width="300" height="300"></a></div>
-    </div>
-
-    <div class="row  row--flex">
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-      <div class="col-xs-1"><a href="#" class="avatar"><img src="img/1855331185.jpg" alt="" width="300" height="300"></a></div>
-    </div>
-  </div>
+  </footer>
+  
   <script src="js/scripts.min.js"></script>
 </body>
 </html>

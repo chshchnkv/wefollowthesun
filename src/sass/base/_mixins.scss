@@ -112,6 +112,14 @@
 }
 
 
+@mixin outline ($size: 1px, $type: dotted, $color: rgba(255, 0, 0, .8)) {
+  
+  @if variable-exists(outline-debug) {
+    outline: $size $type $color;
+  }
+}
+
+
 @for $i from 0 through 20 {
   .mt-#{$i*5} {margin-top: 5px * $i}
   .ml-#{$i*5} {margin-left: 5px * $i}
