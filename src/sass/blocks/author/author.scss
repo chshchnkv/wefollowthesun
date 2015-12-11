@@ -1,0 +1,63 @@
+.author {
+  &__avatar {
+    position: relative;
+    z-index: auto;
+
+    display: block;
+    overflow: hidden;
+    @include cover;
+
+    color: $color-text-light;
+
+    border-radius: 50%;
+
+    img {
+      @include cover;
+
+      margin: 0 auto;
+    }
+
+    transition: all .2s ease-in-out;
+    @include transition-clipping-fix;
+
+    &:hover {
+      z-index: 999;
+
+      box-shadow: 0 0 10px rgba(0,0,0,.5);
+      transform: scale(1.2);
+    }
+    
+    
+    &--static {
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+  
+  
+  &__name {
+    @include fade-in;
+    
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    display: none;
+    
+    padding: 10px;
+    
+    line-height: 1;
+    background-color: $color-accent-orange;
+    border-radius: 5px;
+  }
+  
+  
+  &:hover  &__name {
+    
+    display: block;
+  }
+
+}
