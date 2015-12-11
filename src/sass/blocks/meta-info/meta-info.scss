@@ -1,7 +1,3 @@
 .meta-info {
   @include generate-meta-info($meta-font-color: $color-text-light);
 }
-
-.meta-info-lg {
-  @include generate-meta-info($meta-font-color: $color-text-light, $meta-font-multiplier: 2);
-}

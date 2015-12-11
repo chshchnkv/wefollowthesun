@@ -17,7 +17,7 @@
   list-style: none;
   
   li {
-    padding: 0;
+//    padding: 0;
     
     &:before,
     &:after {
@@ -94,10 +94,17 @@
 }
 
 
-@mixin generate-link($color: $color-text-light) {
+@mixin generate-link($color: $color-text-light, $hover-underline: false) {
   color: $color;
   text-decoration: none;
   cursor: pointer;
+  
+  @if ($hover-underline == true) {    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
 }
 
 
@@ -112,7 +119,7 @@
 }
 
 
-@mixin outline ($size: 1px, $type: dotted, $color: rgba(255, 0, 0, .8)) {
+@mixin outline ($size: 1px, $type: dotted, $color: rgba(255, 0, 0, 1)) {
   
   @if variable-exists(outline-debug) {
     outline: $size $type $color;

@@ -1,8 +1,7 @@
 @mixin generate-meta-info(
   $meta-basis: 5px,
   $meta-font-color: $color-text-dark,
-  $meta-accent-color: $color-accent-orange,
-  $meta-font-multiplier: 1 ) {
+  $meta-accent-color: $color-accent-orange) {
 
   display: flex;
   flex-direction: column;
@@ -13,39 +12,34 @@
     
   word-wrap: break-word;
 
-  font-size: f-base(2 * $meta-font-multiplier);
   line-height: 1;
     
   @media (min-width: $screen-md) {
-    font-size: f-base(2.2 * $meta-font-multiplier);    
     border-radius: $meta-basis;
-  }
-
-  @media (min-width: $screen-lg) {
-    font-size: f-base(2.4 * $meta-font-multiplier);
   }
 
 
   &__item {
+    @include generate-link($meta-font-color, $hover-underline: true);
+    
     display: block;
     position: relative;
     padding: $meta-basis;
     padding-left: 1.5em;
 
-    @include generate-link($meta-font-color);
     text-align: right;
 
     &:before {
+      @include centerV;
+      @include fa-icon();
+      
       content: "";
       
       position: absolute;
       left: $meta-basis;
-      top: 0;
-      @include centerV;
       
       display: block;
 
-      @include fa-icon();
       font-size: 0.9em;
 
       border: none;
@@ -53,7 +47,9 @@
 
 
     &:after {
-      content: "";
+      @include transition-clipping-fix;
+      
+//      content: "";
       position: absolute;
       z-index: -1;
 
@@ -62,7 +58,7 @@
       height: 100%;
 
       top: 0;
-      left: 150%;
+      left: 250%;
 
       opacity: 0;
 
@@ -71,7 +67,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,.5);
 
       transition: transform .2s ease-out, opacity .2s ease-in;
-      @include transition-clipping-fix;
       
       @media (min-width: $screen-sm) {
         border-radius: $meta-basis;
@@ -86,7 +81,7 @@
       &:after {
         opacity: 1;
 
-        transform: translateX(-105%);
+        transform: translateX(-155%);
       }
     }
 

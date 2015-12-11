@@ -1,0 +1,24 @@
+.page-header {
+  @include outline($color: blue);
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  
+  display: block;
+  width: 100%;
+  
+  background-color: transparent;
+  backdrop-filter: blur(5);
+  
+  
+  .no-activity & {
+    position: relative;
+    top: auto;
+    left: auto;
+    
+    background-color: $color-text-dark;
+    color: $color-text-light;
+  }
+}

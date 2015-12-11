@@ -2,7 +2,6 @@ $html-size-base: 10px;
 $menu-v-padding: 20px;
 
 .main-navigation {
-  z-index: 2;
   
   width: 100%;
   min-height: 5rem;
@@ -13,23 +12,17 @@ $menu-v-padding: 20px;
   line-height: 1;
   
   color: $color-text-light;
-  background-color: transparentize($color-text-dark,.1);
+  background-color: transparent;
 
+  border-bottom: 1px solid $color-text-light;
+  
   @media (min-width: $screen-sm) {
     font-size: 2.5rem;
-    color: $color-text-dark;
-
-    background-color: transparent;
-    border-bottom: 1px solid $color-text-light;
   }
   
   
   a {
     @include generate-link;
-    
-    @media (min-width: $screen-sm) {
-      @include generate-link($color-text-dark);
-    }
   }
   
   
@@ -77,6 +70,7 @@ $menu-v-padding: 20px;
   
   
   &__menu {
+    @include list-init;
     flex-direction: column;
     align-items: stretch;
     
@@ -84,6 +78,7 @@ $menu-v-padding: 20px;
     
     &--opened {
       display: flex;
+      background-color: transparentize($color-text-dark, .1);
     }
     
     @media (min-width: $screen-sm) {
@@ -96,12 +91,12 @@ $menu-v-padding: 20px;
   
   
   &__item {
+    @include transition;
     
     position: relative;
     
     border-top: 1px solid $color-text-light;
     
-    @include transition;
     
     @media (min-width: $screen-sm) {
       border: none;

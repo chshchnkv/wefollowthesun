@@ -1,71 +1,133 @@
-@mixin generate-card(
-          $min-height: 150px, 
-          $text-color: $color-text-light, 
-          $card-border-radius: 10px, 
-          $padding: 15px, 
-          $inner-margin: 5px, 
-          $avatar-size: 35px, 
-          $reverse: false, 
-          $header_1_base: 2,
-          $header_2_base: 1.6
-          ) {
-  
-  position: relative;
-  
-  z-index: 1;
-  /* 
-  z-index: 1 решает проблему со скругленными углами в момент перехода transition
-  http://stackoverflow.com/questions/20001515/chrome-bug-border-radius-not-clipping-contents-when-combined-with-css-transiti 
-  */
-  overflow: hidden;
-  
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: space-between;
-  
-  min-height: $min-height;
-  
-  padding: $padding;
-  
-  color: $text-color;
-  line-height: 1;
+@mixin make-card (
+          $card-class-name: "card",
+          $card-min-height: 150px, 
+          $card-basis: 5px,
+          $card-text-color: $color-text-light,
+          $card-font-base: 1rem,
+          $card-border-radius: $card-basis * 2,
+          $card-bg-animation: true,
+          $card-bg-hover-transform: scale(1.2),
+          $card-bg-initial-blur: 0,
+          $card-bg-hover-filter: saturate(150%) blur(3px),
+          $card-authors-adaptive: false,
+          $card-padding-top: $card-basis * 2,
+          $card-padding-right: $card-basis * 2,
+          $card-padding-bottom: $card-basis * 2,
+          $card-padding-left: $card-basis * 2
+) {
 
-  border-radius: $card-border-radius;
-  
-  &__header {
-    display: block;
+  .#{$card-class-name} {
+
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: space-between;
     
-    @if ($reverse == true) {
-      max-width: 100%;
-      order: 3;
-      align-self: flex-end;
-    } @else {
-      max-width: 70%;
+
+    z-index: 1;
+    /* 
+      z-index: 1 решает проблему со скругленными углами в момент перехода transition, решение взято отсюда: http://stackoverflow.com/questions/20001515/chrome-bug-border-radius-not-clipping-contents-when-combined-with-css-transiti 
+    */
+    overflow: hidden;
+
+    min-height: $card-min-height;
+
+    padding-top: $card-padding-top;
+    padding-right: $card-padding-right;
+    padding-bottom: $card-padding-bottom;
+    padding-left: $card-padding-left;
+
+    font-size: $card-font-base;
+    line-height: 1;
+    color: $card-text-color;
+
+    border-radius: $card-border-radius;
+
+    @media (min-width: $screen-sm) {
+      padding-top: $card-padding-top * 1.1;
+      padding-right: $card-padding-right * 1.1;
+      padding-bottom: $card-padding-bottom * 1.1;
+      padding-left: $card-padding-left * 1.1;
+
+      border-radius: ($card-border-radius/2);
     }
-    
-    @include generate-link($color-text-light);
 
-    h2 {
-      margin: 0 0 $inner-margin 0;
-      padding: 0;
-
-      font-size: f-base($header_1_base);
-    }
-    
-    h3 {
-      margin: 0;
+    @media (min-width: $screen-md) {
+      padding-top: $card-padding-top * 1.25;
+      padding-right: $card-padding-right * 1.25;
+      padding-bottom: $card-padding-bottom * 1.25;
+      padding-left: $card-padding-left * 1.25;
       
-      font-size: f-base($header_2_base);
-      font-weight: normal;
+      @if (unit($card-min-height) != "vh") {
+        min-height: $card-min-height * 1.5;
+      }
+
+      font-size: ($card-font-base * 1.1);
+    }
+
+    @media (min-width: $screen-lg) {
+      font-size: ($card-font-base * 1.2);
     }
   }
   
   
-  &__bg {
+  .#{$card-class-name}__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: space-between;
+    
+    @include outline($color: cyan, $size: 3px);
+  }
+  
+  
+  .#{$card-class-name}__header {
+    display: block;
+    max-width: 70%;
+
+    order: 1;
+    
+    @include generate-link($card-text-color);
+
+    .#{$card-class-name}--reverse & {
+      max-width: 100%;
+      flex-basis: 100%;
+      order: 3;
+    }
+
+    h2 {
+      margin: 0 0 0.25em 0;
+      padding: 0;
+
+      font-size: 2em;
+    }
+
+    h3 {
+      margin: 0 0 0.25em 0;
+
+      font-size: 1.6em;
+      font-weight: normal;
+    }
+    
+    h4 {
+      margin: 0 0 0.25em 0;
+      
+      font-size: 1.1em;
+      font-weight: normal;
+    }
+  }
+
+  
+  .#{$card-class-name}__bg {
+    @include transition-clipping-fix;
+    
     position: absolute;
     z-index: -1;
+    
+    display: flex;
     
     top: 0;
     left: 0;
@@ -76,14 +138,19 @@
     background-position: center;
     background-repeat: no-repeat;
     
-//    transition: filter 0.3s linear, transform 0.3s ease-in-out;
+    @if (unitless($card-bg-initial-blur) == false) {
+      filter: blur($card-bg-initial-blur);
+    }
+    
     transition-property: filter, transform;
     transition-duration: 0.3s;
     transition-timing-function: linear, ease-out;
     
-    @include transition-clipping-fix;
     
     &:after {
+      @include bg-gradient;
+      @include transition-clipping-fix;
+      
       content: "";
       position: absolute;
       top: 0;
@@ -93,147 +160,70 @@
       width: 100%;
       height: 100%;
 
-      @include bg-gradient;
       transition: opacity 0.3s linear;
-      @include transition-clipping-fix;
     }
   }
 
 
-  &:hover &__bg {
-    transform: scale(1.2);
-    filter: saturate(150%) blur(3px);
-    
-    &:after {
-      opacity: 0.5;
-    }
+  @if ($card-bg-animation == true) {
+    .#{$card-class-name}:hover .#{$card-class-name}__bg {
+      filter: $card-bg-hover-filter;
+      transform: $card-bg-hover-transform;
+
+      &:after {
+        opacity: 0.75;
+      }
+    }    
   }
-  
-  
-  &__meta {
+
+
+  .#{$card-class-name}__meta {
     position: relative;
     z-index: 1;
     
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    
-    @if ($reverse == true) {
-      order: 2;
-      align-self: flex-start;
-    }
+    order: 2;
+  
     max-width: 30%;
     
-    margin-top: -$inner-margin;
-    margin-right: -$inner-margin;
-    margin-bottom: ($inner-margin * 2);
+    margin-top: -$card-basis;
+    margin-right: -$card-basis;
+    margin-bottom: ($card-basis * 2);
     
-    font-size: f-base($header_1_base);
-
-    &-item {
-      position: relative;
-      padding: $inner-margin;
-      
-      @include generate-link($color-text-light);
-      
-      &:not(:last-child) {
-        margin-bottom: $inner-margin;
-      }
-      
-      
-      &:before {
-        content: "";
-        vertical-align: baseline;
-        margin-right: ($inner-margin * 2);
-        
-        @include fa-icon();
-        font-size: f-base(($header_1_base * 0.9));
-        
-        border: none;
-      }
-
-      
-      &:after {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        
-        display: block;
-        width: 150%;
-        height: 100%;
-
-        top: 0;
-        left: 150%;
-        
-        opacity: 0;
-        
-        border-radius: ($border-radius/2);
-        background-color: transparentize($color-accent-orange, 0.1);
-        box-shadow: 0 0 10px rgba(0,0,0,.5);
-        
-        transition: transform .2s ease-out;
-        @include transition-clipping-fix;
-      }
-      
-      
-      &:hover {
-        text-shadow: 0 0 3px rgba(0,0,0,.5);
-        
-        
-        &:after {
-          opacity: 1;
-
-          transform: translateX(-105%);
-        }
-      }
-      
-      
-      &-posts:before {
-        content: $fa-var-pencil;
-      }
-
-      
-      &-photos:before {
-        content: $fa-var-camera;
-        font-size: f-base($header_1_base * 0.8);
-      }
-      
-      
-      &-comments:before {
-        content: $fa-var-comments;
-      }
-      
-      
-      &-views:before {
-        content: $fa-var-eye;
-      }
-    }
+    font-size: 2em;
   }
   
   
-  &__authors {
-    @include generate-authors();
-    
-    margin-left: -$inner-margin;
-    margin-bottom: -$inner-margin;
-    
-    @if ($reverse == true) {
-      flex-basis: 70%;
+  .#{$card-class-name}__authors {
+    @include make-row($card-basis * 2);
+    order: 3;
+    flex-grow: 1;
+
+    .#{$card-class-name}--reverse & {
+      flex-basis: 25%;
       flex-grow: 0;
       order: 1;
-    } @else {      
-      flex-basis: 100%;
-      flex-grow: 1;
     }
   }
   
   
-  &__author {
-    @include generate-authors-item($avatar-size, $inner-margin);
+  .#{$card-class-name}__author {
+    @include make-xs-column(2, $gutter: ($card-basis * 2));
+    
+    @if ($card-authors-adaptive == true)
+    {
+      @include make-md-column(1, $gutter: ($card-basis * 2));
+    }
+    
+    padding-top: $card-basis;
+    padding-bottom: $card-basis;
+    
+    .#{$card-class-name}--reverse & {
+      @include make-xs-column(12, $gutter: ($card-basis * 2));
+    }
   }
-
-
-  @media (min-width: $size-tablet) {    
-    border-radius: ($border-radius/2);
+  
+  
+  .#{$card-class-name}__inner-cards {
+    order: 4;
   }
 }

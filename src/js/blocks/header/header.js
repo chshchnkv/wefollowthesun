@@ -5,14 +5,14 @@
   
   if (headerTitle && headerTitleToggle && headerTitleMenu) {
     
-    if (window.matchMedia("(max-width: 767px)").matches) {
       
       headerTitle.addEventListener("click", function(event) {
-        event.preventDefault();
-        headerTitleToggle.classList.toggle("toggle--opened");
-        headerTitleMenu.classList.toggle("main-navigation__menu--opened");
+        if (window.matchMedia("(max-width: 767px)").matches) {
+          event.preventDefault();
+          headerTitleToggle.classList.toggle("toggle--opened");
+          headerTitleMenu.classList.toggle("main-navigation__menu--opened");
+        }
       });
-    }
     
   }
 }

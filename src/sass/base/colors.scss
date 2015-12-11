@@ -10,8 +10,12 @@ $color-grey: #555;
 $color-accent-orange: #f77a52;
 $color-accent-yellow: #ecdb60;
 
-@mixin bg-gradient {
-  background: linear-gradient(to bottom, fade-out($color-bg-darker, .55) 0%, fade-out($color-bg-darker, .65) 100%);
+@mixin bg-gradient ($from: fade-out($color-bg-darker, .75), $to: fade-out($color-bg-darker, .25), $radial: true, $linear-goes-to: to bottom) {
+  @if ($radial == true) {
+    background-image: radial-gradient(circle, $from, $to);
+  } else {
+    background-image: linear-gradient($linear-goes-to, $from, $to);
+  }
 }
 
 /// Немного осветлить цвет
@@ -30,8 +34,4 @@ $color-accent-yellow: #ecdb60;
 /// @return {Color}
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
-}
-
-@function hover ($color, $shade-value: 20%) {
-  @return shade($color, $shade-value);
 }

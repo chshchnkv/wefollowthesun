@@ -1,0 +1,11 @@
+@include make-card("card", $card-bg-hover-transform: scale(1.05) rotateZ(1deg));
+
+@include make-card(
+  "card-xl", 
+  $card-border-radius: 0, 
+  $card-font-base: 1.5rem,
+  $card-bg-animation: false,
+  $card-authors-adaptive: true,
+  $card-bg-initial-blur: 7px,
+  $card-padding-top: 6rem,
+  $card-padding-bottom: 6rem);
