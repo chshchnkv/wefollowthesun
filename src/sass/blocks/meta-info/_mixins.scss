@@ -12,6 +12,7 @@
     
   word-wrap: break-word;
 
+  font-family: $font-family-captions;
   line-height: 1;
     
   @media (min-width: $screen-md) {
@@ -75,7 +76,7 @@
 
 
     &:hover {
-      text-shadow: 0 0 3px rgba(0,0,0,.5);
+      @include brand-text-shadow;
 
 
       &:after {

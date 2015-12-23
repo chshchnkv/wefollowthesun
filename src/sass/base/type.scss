@@ -1,15 +1,18 @@
-$font-family: "PT Sans Narrow", sanf-serif !global;
+$font-family-captions: "PT Sans Narrow", sanf-serif !global;
+$font-family-text: "PT Sans", sanf-serif !global;
+$font-family-serif: "PT Serif", serif !global;
 $font-base: 10px!global;
-$h1: f-base(4)!global;
-$h2: f-base(3.2)!global;
-$h3: f-base(2.4)!global;
-$h4: f-base(2)!global;
-$h5: f-base(2)!global;
-$h6: f-base(1.8)!global;
-$font-normal: f-base(1.4)!global;
+$h1: 4rem;
+$h2: 3.2rem;
+$h3: 2.4rem;
+$h4: 2rem;
+$h5: 2rem;
+$h6: 1.8rem;
+$font-normal: 1.4rem;
 
 html {
-  font: normal normal normal #{$font-base} $font-family; // shortening font declaration
+  font: normal normal normal #{$font-base} $font-family-text; // shortening font declaration 
+  
   text-rendering: auto; // optimizelegibility throws things off #1094
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,34 +20,63 @@ html {
 
 
 h1, .h1 {
+  font-family: $font-family-captions;
   font-size: $h1;
   font-weight: 700;
+  
+  @media (min-width: $screen-md) {
+    font-size: 6rem;
+  }
 }
 
 
 h2, .h2 {
+  font-family: $font-family-captions;
   font-size: $h2;
   font-weight: 700;
 }
 
 
 h3, .h3 {
+  font-family: $font-family-captions;
   font-size: $h3;
 }
 
 
 h4, .h4,  h5, .h5 {
+  font-family: $font-family-captions;
   font-size: $h4;
 }
 
 
 h6, .h6 {
+  font-family: $font-family-captions;
   font-size: $h6;
+  
+  @media (min-width: $screen-md) {
+    font-size: 2.4rem;
+  }
 }
 
 
 p, .p {
-  font-size: $font-normal; 
+  font-size: $font-normal;
+
+  &:first-letter {
+    font-size: 1.5em;
+  }
+  
+  a {
+    display: inline-block;
+
+    &:first-letter {
+      font-size: inherit;
+    }
+  }
+  
+  @media (min-width: $screen-sm) {
+    font-size: 1.8rem;
+  }
 }
 
 

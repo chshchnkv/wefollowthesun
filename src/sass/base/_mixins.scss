@@ -94,17 +94,23 @@
 }
 
 
-@mixin generate-link($color: $color-text-light, $hover-underline: false) {
+@mixin generate-link($color: $color-text-light, $underline: false, $hover-underline: false) {
   color: $color;
-  text-decoration: none;
   cursor: pointer;
   
-  @if ($hover-underline == true) {    
-    &:hover {
-      text-decoration: underline;
-    }
+  @if ($underline == true) {
+    text-decoration: underline;
+  } @else {
+    text-decoration: none;
   }
   
+    &:hover {
+      @if ($hover-underline == true) {    
+        text-decoration: underline;
+      } @else {
+        text-decoration: none;
+    }
+  }
 }
 
 

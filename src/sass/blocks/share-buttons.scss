@@ -1,0 +1,26 @@
+.share-buttons {
+  font-size: 2.5rem;
+  
+  @media (min-width: $screen-sm) {
+    font-size: 4rem;
+  }
+  
+  
+  &__item {
+    @include transition;
+    color: transparentize($color-text-dark, 0.5);
+    
+    & + & {
+      margin-left: 3rem;
+    }
+    
+    &:hover {
+      @include brand-text-shadow;
+      color: $color-text-dark;
+    }
+    
+    &:active {
+      color: transparentize($color-text-dark, 0.75);
+    }
+  }
+}

@@ -1,0 +1,360 @@
+.post {
+  @include outline($color: cyan, $size: 5px);
+  
+  &__header {
+    @include outline($color: green, $size: 4px);
+    @include brand-shadow;
+    
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+    min-height: 17rem;
+
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    
+    color: $color-text-light;
+        
+    @media (min-width: $screen-sm) {
+      min-height: 26rem;
+    }
+    
+    @media (min-width: $screen-md) {
+      min-height: 40rem;
+    }
+    
+    h1 {
+      margin: 0;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+    
+    h6 {
+      margin: 0;
+      margin-bottom: 2.5rem;
+      
+      font-family: $font-family-text;
+      font-style: italic;
+      font-weight: normal;
+    }
+    
+    a {
+      @include generate-link($underline: true, $hover-underline: true, $color: $color-text-light);
+    }
+
+    &-container {
+      @media (max-width: $screen-xs-max) {
+          margin-left: inherit;
+      }
+    }
+  }
+  
+  
+  &__author {
+    width: 5rem;
+    height: 5rem;
+    
+    margin-right: 1.5rem;
+        
+    @media (min-width: $screen-sm) {
+      width: 7.5rem;
+      height: 7.5rem;
+    }
+  }
+  
+  
+  &__meta {
+    display: flex;
+    align-items: center;
+
+
+    h6 {
+      margin: 0;
+    }
+  }
+  
+  
+  &__author-name {
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  
+  &__date {
+  }
+  
+  
+  &__place {
+  }
+  
+  
+  &__section {
+    position: relative;
+    
+    
+    & + & {
+      margin-top: 2rem;
+    }
+    
+    
+    $p-xs: 4.5rem;
+    $p-sm: 9rem;
+    $p-md: 11rem;
+    $p-lg: 12.5rem;
+    
+    &--bg {
+      @include brand-shadow;
+      padding-left: $p-xs;
+      padding-right: $p-xs;
+
+      background-color: $color-text-light;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+
+      @media (min-width: $screen-sm) {
+        padding-left: $p-sm;
+        padding-right: $p-sm;
+      }
+      
+
+      @media (min-width: $screen-md) {
+        padding-left: $p-md;
+        padding-right: $p-md;
+      }
+      
+
+      @media (min-width: $screen-lg) {
+        padding-left: $p-lg;
+        padding-right: $p-lg;
+      }
+      
+
+    }
+    
+    @mixin fullimg($padding-size) {
+      margin-left: -$padding-size;
+      width: calc(100% + (2*#{$padding-size}));
+    }
+    
+    > img:not([class])/*,
+    p > img:not([class])*/ {
+      position: relative;
+      display: block;
+      @include fullimg($p-xs);
+      
+      @media (min-width: $screen-sm) {
+        @include fullimg($p-sm);
+      }
+      
+      @media (min-width: $screen-md) {
+        @include fullimg($p-md);
+      }
+      
+      @media (min-width: $screen-lg) {
+        @include fullimg($p-lg);
+      }
+      
+      &:last-child {
+        // компенсация нижней прозрачной рамки секции, когда картинка является последним ее элементом
+        bottom: -1px;
+      }
+    }
+  }
+  
+  
+  &-content {
+    font-family: $font-family-serif;
+    font-size: $font-normal;
+  }
+  
+  &-share {
+    text-align: center;
+  }
+
+  &-container {
+    @media (max-width: $screen-xs-max) {
+      margin-left: $grid-gutter-width / 2;
+      margin-right: $grid-gutter-width / 2;        
+    }
+  }
+
+  &-related {
+
+    &__list {
+      margin-bottom: 1.5rem;
+      
+      @media (min-width: $screen-sm) {
+        margin-bottom: 3rem;
+      }
+    }
+    
+    &__item {
+      
+      @include generate-link($underline: false, $color: $color-text-dark, $hover-underline: true);
+      
+      & + & {
+        margin-top: 1rem;
+        
+        @media (min-width: $screen-sm) {
+          margin-top: 0;
+          margin-bottom: 1rem;
+        }
+      }
+      
+      @media (min-width: $screen-sm) {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+    }
+    
+    &__img {
+      position: relative;
+      overflow: hidden;
+      
+      flex-grow: 0!important;
+      flex-shrink: 0;
+      
+      width: (100%/6);
+      
+      border-radius: 0.5rem;
+      
+      @media (min-width: $screen-sm) {
+        width: 100%;
+      }
+    }
+    
+    &__title {
+      margin: 0;
+      padding-left: 1rem;
+      font-family: $font-family-serif;
+      font-size: 1.5rem;
+      font-weight: normal;
+      line-height: 1;
+      font-style: italic;
+      
+      word-wrap: break-word;
+      
+      @media (min-width: $screen-sm) {
+        padding-left: 0;
+      }
+    }
+    
+  }
+  
+  $nav-padding: 10rem;
+  &-navigation {
+    font-size: 2.6rem;
+    line-height: normal;
+    
+    @media (min-width: $screen-sm) {
+      font-size: 3.2rem;
+    }
+    
+    &__item-col {
+      @include make-xs-column(12);
+      @include make-sm-column(6);
+      
+      & + & {
+        margin-top: ($grid-gutter-width/2);
+
+        @media (min-width: $screen-sm) {
+          margin-top: 0;
+        }
+      }
+      
+      &--prev {
+        padding-left: 0;
+      }
+      
+      &--next {
+        padding-right: 0;
+      }
+      
+
+    }
+    
+    &__item {
+      @include generate-link($color: $color-text-light);
+      @include brand-shadow;
+      
+      position: relative;
+      
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      
+      &-col--prev & {
+        justify-content: flex-start;
+      }
+      
+      &-col--next & {
+        justify-content: flex-end;
+      }
+    }
+    
+    &__direction-text {
+      flex-basis: 100%;
+      
+      font-family: $font-family-captions;
+      font-weight: bold;
+    }
+    
+    &__item-col--prev &__direction-text {
+      margin-left: $nav-padding;
+    }
+
+    &__item-col--next &__direction-text {
+      margin-right: $nav-padding;
+      text-align: right;
+    }
+    
+    &__author {
+      flex-basis: $nav-padding;
+      flex-grow: 0;
+      max-width: $nav-padding;
+      
+      margin: 0;
+      padding: 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    &__item-col--next &__author {
+      order: 1;
+    }
+    
+    &__title {
+      flex-basis: calc(100% - #{$nav-padding});
+      flex-shrink: 1;
+      
+      margin: 0;
+      padding: 0;
+      
+      font-family: $font-family-serif;
+      font-style: italic;
+      font-weight: normal;
+
+      &:before {
+        content: "\00AB";
+      }
+
+      &:after {
+        content: "\00BB";
+      }
+      word-wrap: break-word;
+    }
+    
+    &__item-col--next &__title {
+      text-align: right;
+    } 
+  }
+}

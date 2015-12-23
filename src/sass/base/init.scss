@@ -3,6 +3,9 @@ html {
 
   color: $color-text-dark;
   background-color: $color-bg-light;
+  background-image: url("../img/post__bg.png");
+  background-repeat: repeat;
+  background-size: 150px;
 }
 
 *, *:before, *:after {
@@ -13,10 +16,14 @@ html {
 
 
 a {
-  @include generate-link($color-text-dark);
+  @include generate-link($color-text-dark, $underline: true, $hover-underline: true);
 }
 
 
 body {
-//  padding-top: $header-size;
+}
+
+img:not([class]) {
+  width: 100%;
+  height: auto;
 }

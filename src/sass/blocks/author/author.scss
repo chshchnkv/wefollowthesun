@@ -1,4 +1,6 @@
 .author {
+  position: relative;
+  
   &__avatar {
     position: relative;
     z-index: auto;
@@ -49,6 +51,7 @@
     
     padding: 10px;
     
+    font-size: 0.7em;
     line-height: 1;
     background-color: $color-accent-orange;
     border-radius: 5px;

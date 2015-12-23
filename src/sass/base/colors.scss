@@ -10,12 +10,79 @@ $color-grey: #555;
 $color-accent-orange: #f77a52;
 $color-accent-yellow: #ecdb60;
 
+
 @mixin bg-gradient ($from: fade-out($color-bg-darker, .75), $to: fade-out($color-bg-darker, .25), $radial: true, $linear-goes-to: to bottom) {
   @if ($radial == true) {
     background-image: radial-gradient(circle, $from, $to);
   } else {
     background-image: linear-gradient($linear-goes-to, $from, $to);
   }
+}
+
+
+@mixin brand-gradient-cover($radial-gr: true) {
+  @include bg-gradient($radial:$radial-gr);
+  @include transition-clipping-fix;
+
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 0.3s linear;
+}
+
+
+@mixin brand-shadow {
+  box-shadow: 0 3px 7px rgba(0,0,0,0.35);
+}
+
+@mixin brand-text-shadow {
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+
+@mixin bg-image ($image-url: "", $gradient: true, $radial-grad: true) {
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  @if ($image-url != "") {
+    background-image: url($image-url);
+  }
+
+  @if ($gradient) {
+    &:after {
+      @include brand-gradient-cover($radial-gr: $radial-grad); 
+    }    
+  }
+}
+
+
+.bg-image-covered {
+  @include bg-image;
+}
+
+
+.bg-image-covered-linear {
+  @include bg-image($radial-grad: false);
+}
+
+
+.bg-image {
+  @include bg-image($gradient: false);
 }
 
 /// Немного осветлить цвет
