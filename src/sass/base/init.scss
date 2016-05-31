@@ -6,6 +6,8 @@ html {
   background-image: url("../img/post__bg.png");
   background-repeat: repeat;
   background-size: 150px;
+  
+  hyphens: auto; // not supported in chrome
 }
 
 *, *:before, *:after {

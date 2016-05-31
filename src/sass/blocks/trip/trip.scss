@@ -1,0 +1,13 @@
+.trip {
+  
+  &__sections {
+    font-size: $h2;
+    text-align: center;
+    
+    input[type="radio"] {
+      display: none;
+    }
+    
+  }
+  
+}

@@ -2,10 +2,10 @@
 
 module.exports = function(grunt) {
   require("load-grunt-tasks")(grunt);
-  
+
   var config = {
     pkg: grunt.file.readJSON("package.json"),
-    
+
     sass: {
       style: {
         files: {
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     postcss: {
       options: {
         processors: [
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         src: "build/css/style.css"
       }
     },
-    
+
     cmq: {
       style: {
         files: {
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     watch: {
       configFiles: {
         files: [ "Gruntfile.js", "config/*.js" ],
@@ -52,11 +52,11 @@ module.exports = function(grunt) {
           reload: true
         }
       },
-      
+
       options: {
         livereload: true,
       },
-      
+
       html: {
         files: ["src/*.html", "src/*.php"],
         tasks: ["clean:html", "copy:html"],
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
-      
+
       fonts: {
         files: ["src/fonts/**/*.*", "src/fonts/*.*"],
         tasks: ["copy:fonts"],
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
-      
+
       img: {
         files: ["src/img/**/*.jpg", "src/img/**/*.png", "src/img/*.jpg", "src/img/*.png"],
         tasks: ["copy:img"],
@@ -92,9 +92,9 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
-      
+
       script: {
-        files: ["src/js/**/*.js"],
+        files: ["src/js/**/*.js", "src/js/*.js"],
         tasks: ["concat", "uglify"],
         options: {
           spawn: false,
@@ -102,12 +102,12 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     clean: {
       build: ["build"],
       html: ["build/*.html", "build/*.php"]
     },
-    
+
     copy: {
       build: {
         files: [{
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
           dest: "build"
         }]
       },
-      
+
       html: {
         files: [{
           expand: true,
@@ -140,16 +140,16 @@ module.exports = function(grunt) {
           dest: "build"
         }]
       },
-      
+
       fonts: {
         files: [{
           expand: true,
           cwd: "src/fonts",
           src: "*.*",
           dest: "build/fonts"
-        }, 
+        },
         {
-          expand: true, 
+          expand: true,
           cwd: "node_modules/font-awesome/fonts",
           src: "*.*",
           dest: "build/fonts"
@@ -157,19 +157,20 @@ module.exports = function(grunt) {
         ]
       }
     },
-    
+
     concat: {
       main: {
         src: [
           "node_modules/mustache/mustache.min.js",
           "node_modules/moment/min/moment-with-locales.min.js",
           "src/js/blocks/header/header.js",
-          "src/js/blocks/search/search.js"
+          "src/js/blocks/search/search.js",
+          "src/js/blocks/switcher.js"
         ],
         dest: "build/js/scripts.js"
       }
     },
-    
+
     uglify: {
       main: {
         files: {
@@ -178,7 +179,7 @@ module.exports = function(grunt) {
       }
     },
   };
-  
+
   grunt.registerTask("build", [
     "clean",
     "copy",
@@ -190,7 +191,7 @@ module.exports = function(grunt) {
     "concat",
     "uglify"
   ]);
-  
+
   grunt.initConfig(config);
-  
+
 }

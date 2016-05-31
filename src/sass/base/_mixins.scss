@@ -96,7 +96,6 @@
 
 @mixin generate-link($color: $color-text-light, $underline: false, $hover-underline: false) {
   color: $color;
-  cursor: pointer;
   
   @if ($underline == true) {
     text-decoration: underline;
